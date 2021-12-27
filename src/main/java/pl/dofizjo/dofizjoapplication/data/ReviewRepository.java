@@ -24,11 +24,6 @@ public class ReviewRepository {
         this.jdbc = jdbc;
     }
 
-    // Find all
-    public List<Review> findAll() {
-        return jdbc.query("SELECT * from REVIEW", new ReviewMapper());
-    }
-
     // Find by id
     public Review findById(Long id) {
         return jdbc.queryForObject("SELECT id, author, discipline, opinion from REVIEW where id=?",
@@ -36,25 +31,46 @@ public class ReviewRepository {
                 id);
     }
 
-    // Save one
-    public long save(Review review) {
-        // Statement
-        PreparedStatementCreatorFactory pscFactory = new PreparedStatementCreatorFactory(
-                "INSERT into REVIEW (author, discipline, opinion) values (?, ?, ?)",
-                Types.VARCHAR, Types.VARCHAR, Types.VARCHAR);
-        pscFactory.setReturnGeneratedKeys(true);
-        PreparedStatementCreator psc = pscFactory.newPreparedStatementCreator(
-                Arrays.asList(
-                        review.getAuthor(),
-                        review.getDiscipline(),
-                        review.getOpinion()));
+    // Find all
+    public List<Review> findAll() {
+        return jdbc.query("SELECT * from REVIEW", new ReviewMapper());
+    }
 
-        // Generating ID
-        KeyHolder keyHolder = new GeneratedKeyHolder();
+    // Add one
+    public void add(Review review) {
+        jdbc.update("INSERT into REVIEW (author, discipline, opinion) values (?, ?, ?)",
+                review.getAuthor(),
+                review.getDiscipline(),
+                review.getOpinion());
+    }
 
-        // Save to database and return ID
-        jdbc.update(psc, keyHolder);
-        return keyHolder.getKey().longValue();
+    // Add all
+    public void addAll(Iterable<Review> list) {
+        for (Review review : list) {
+            add(review);
+        }
+    }
+
+    // Overwrite one
+    public void overwrite(Review review) {
+        deleteById(review.getId());
+
+        jdbc.update("INSERT into REVIEW (author, discipline, opinion) values (?, ?, ?)",
+                review.getAuthor(),
+                review.getDiscipline(),
+                review.getOpinion());
+    }
+
+    // Overwrite all
+    public void overwriteAll(Iterable<Review> list)  {
+        for (Review review : list) {
+            overwrite(review);
+        }
+    }
+
+    // Delete by id
+    public void deleteById(int id) {
+        jdbc.update("DELETE from REVIEW where id=?", id);
     }
 
 }

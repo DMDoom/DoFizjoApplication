@@ -22,18 +22,18 @@ public class PostRepository {
         this.jdbc = jdbc;
     }
 
-    // Find recent
-    public List<Post> findRecent() {
-        return jdbc.query("SELECT * from POST ORDER BY createdAt DESC",
-                new PostMapper());
-    }
-
     // Find by id
     public Post findById(Long id) {
         return jdbc.queryForObject(
                 "SELECT id, author, title, content, createdAt from POST where id=?",
                 new PostMapper(),
                 id); // vararg
+    }
+
+    // Find recent
+    public List<Post> findRecent(int number) {
+        return jdbc.query("SELECT * from POST ORDER BY createdAt DESC LIMIT ?",
+                new PostMapper(), number);
     }
 
     // Find all
@@ -45,7 +45,7 @@ public class PostRepository {
     }
 
     // Add one
-    public int add(Post post) {
+    public void add(Post post) {
         post.setCreatedAt(new Date());
 
         jdbc.update("INSERT into POST (author, title, content, createdAt) values (?, ?, ?, ?)",
@@ -53,8 +53,6 @@ public class PostRepository {
                 post.getTitle(),
                 post.getContent(),
                 post.getCreatedAt());
-
-        return 0;
 
         // Statement
         // This is actually not necessary as JdbcTemplate does this under the hood by itself
@@ -101,6 +99,13 @@ public class PostRepository {
                 post.getTitle(),
                 post.getContent(),
                 post.getCreatedAt());
+    }
+
+    // Overwrite all
+    public void overwriteAll(Iterable<Post> list) {
+        for (Post post : list) {
+            overwrite(post);
+        }
     }
 
     // Delete by id

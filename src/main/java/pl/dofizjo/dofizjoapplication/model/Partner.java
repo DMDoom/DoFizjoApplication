@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 // Partner, composed of img src, h2 name, and p description
 public class Partner {
 
-    private Long id;
+    private int id;
 
     @NotNull
     private String img;

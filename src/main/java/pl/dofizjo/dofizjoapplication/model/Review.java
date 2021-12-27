@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @RequiredArgsConstructor
 public class Review {
 
-    private Long id;
+    private int id;
 
     @NotNull
     private String author;

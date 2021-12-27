@@ -22,11 +22,6 @@ public class BlockRepository {
         this.jdbc = jdbc;
     }
 
-    // Find all
-    public List<Block> findAll() {
-        return jdbc.query("SELECT * from BLOCK", new BlockMapper());
-    }
-
     // Find by id
     public Block findById(Long id) {
         return jdbc.queryForObject("SELECT id, title, content from BLOCK where id=?",
@@ -34,23 +29,43 @@ public class BlockRepository {
                 id);
     }
 
-    // Save one
-    public long save(Block block) {
-        // Statement
-        PreparedStatementCreatorFactory pscFactory = new PreparedStatementCreatorFactory(
-                "INSERT into BLOCK (title, content) values (?, ?)",
-                Types.VARCHAR, Types.VARCHAR);
-        pscFactory.setReturnGeneratedKeys(true);
-        PreparedStatementCreator psc = pscFactory.newPreparedStatementCreator(
-                Arrays.asList(
-                        block.getTitle(),
-                        block.getContent()));
+    // Find all
+    public List<Block> findAll() {
+        return jdbc.query("SELECT * from BLOCK", new BlockMapper());
+    }
 
-        // Generating ID
-        KeyHolder keyHolder = new GeneratedKeyHolder();
+    // Add one
+    public void add(Block block) {
+        jdbc.update("INSERT into BLOCK (title, content) values (?, ?)",
+                block.getTitle(),
+                block.getContent());
+    }
 
-        // Save Block to database and return ID
-        jdbc.update(psc, keyHolder);
-        return keyHolder.getKey().longValue();
+    // Add all
+    public void addAll(Iterable<Block> list) {
+        for (Block block : list) {
+            add(block);
+        }
+    }
+
+    // Overwrite one
+    public void overwrite(Block block) {
+        deleteById(block.getId());
+
+        jdbc.update("INSERT into BLOCK (title, content) values (?, ?)",
+                block.getTitle(),
+                block.getContent());
+    }
+
+    // Overwrite all
+    public void overwriteAll(Iterable<Block> list) {
+        for (Block block : list) {
+            overwrite(block);
+        }
+    }
+
+    // Delete by id
+    public void deleteById(int id) {
+        jdbc.update("DELETE from BLOCK where id=?", id);
     }
 }

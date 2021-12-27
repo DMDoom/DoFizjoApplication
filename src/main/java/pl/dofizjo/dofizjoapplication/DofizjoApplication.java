@@ -29,7 +29,7 @@ public class DofizjoApplication {
 			postRepo.add(new Post(3, "Karol", "Długotrwała współpraca", "Lorem ipsum", new Date()));
 			postRepo.add(new Post(4, "Mateusz", "Przygotowania do zawodów", "Lorem ipsum", new Date()));
 			postRepo.add(new Post(5, "Karol", "Zalety regularnych wizyt", "Lorem ipsum", new Date()));
-			postRepo.add(new Post(6, "Karol", "Długotrwała współpraca", "Lorem ipsum", new Date()));postRepo.add(new Post(4, "Mateusz", "Przygotowania do zawodów", "Lorem ipsum", new Date()));
+			postRepo.add(new Post(6, "Karol", "Długotrwała współpraca", "Lorem ipsum", new Date()));
 			postRepo.add(new Post(7, "Karol", "Zalety regularnych wizyt", "Lorem ipsum", new Date()));
 			postRepo.add(new Post(8, "Karol", "Długotrwała współpraca", "Lorem ipsum", new Date()));
 
@@ -44,8 +44,8 @@ public class DofizjoApplication {
 			}
 
 			// Fetching recent 5
-			log.info("FETCHING LAST 5: ");
-			for (Post post: postRepo.findRecent()) {
+			log.info("FETCHING LAST 3: ");
+			for (Post post: postRepo.findRecent(3)) {
 				log.info(post.toString());
 			}
 		};

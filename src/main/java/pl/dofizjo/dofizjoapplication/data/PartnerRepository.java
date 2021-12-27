@@ -23,16 +23,24 @@ public class PartnerRepository {
         this.jdbc = jdbc;
     }
 
-    // Find all
-    public List<Partner> findAll() {
-        return jdbc.query("SELECT * from PARTNER", new PartnerMapper());
-    }
-
     // Find by id
     public Partner findById(Long id) {
         return jdbc.queryForObject("SELECT id, img, name, description from PARTNER where id=?",
                 new PartnerMapper(),
                 id);
+    }
+
+    // Find all
+    public List<Partner> findAll() {
+        return jdbc.query("SELECT * from PARTNER", new PartnerMapper());
+    }
+
+    // Save one
+    public void save(Partner partner) {
+        jdbc.update("INSERT into PARTNER (img, name, description) values (?, ?, ?)",
+                partner.getImg(),
+                partner.getName(),
+                partner.getDescription());
     }
 
     // Save all
@@ -42,24 +50,25 @@ public class PartnerRepository {
         }
     }
 
-    // Save one
-    public long save(Partner partner) {
-        // Statement
-        PreparedStatementCreatorFactory pscFactory = new PreparedStatementCreatorFactory(
-                "INSERT into PARTNER (img, name, description) values (?, ?, ?)",
-                Types.VARCHAR, Types.VARCHAR, Types.VARCHAR);
-        pscFactory.setReturnGeneratedKeys(true);
-        PreparedStatementCreator psc = pscFactory.newPreparedStatementCreator(
-                Arrays.asList(
-                        partner.getImg(),
-                        partner.getName(),
-                        partner.getDescription()));
+    // Overwrite one
+    public void overwrite(Partner partner) {
+        deleteById(partner.getId());
 
-        // Generating ID
-        KeyHolder keyHolder = new GeneratedKeyHolder();
+        jdbc.update("INSERT into PARTNER (img, name, description) values (?, ?, ?)",
+                partner.getImg(),
+                partner.getName(),
+                partner.getDescription());
+    }
 
-        // Save to database and return ID
-        jdbc.update(psc, keyHolder);
-        return keyHolder.getKey().longValue();
+    // Overwrite all
+    public void overwriteAll(Iterable<Partner> list) {
+        for (Partner partner : list) {
+            overwrite(partner);
+        }
+    }
+
+    // Delete by id
+    public void deleteById(int id) {
+        jdbc.update("DELETE from PARTNER where id=?", id);
     }
 }

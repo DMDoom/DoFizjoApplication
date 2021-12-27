@@ -12,7 +12,7 @@ public class PartnerMapper implements RowMapper<Partner> {
     @Override
     public Partner mapRow(ResultSet rs, int rowNum) throws SQLException {
         Partner partner = new Partner();
-        partner.setId(rs.getLong("id"));
+        partner.setId(rs.getInt("id"));
         partner.setImg(rs.getString("img"));
         partner.setName(rs.getString("name"));
         partner.setDescription(rs.getString("description"));
