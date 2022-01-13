@@ -21,6 +21,16 @@ public class DofizjoApplication {
 		SpringApplication.run(DofizjoApplication.class, args);
 	}
 
+	@Bean CommandLineRunner dataLoader(PostRepository postRepo) {
+		return args -> {
+			log.info("FETCHING ALL: ");
+			for (Post post : postRepo.findAll()) {
+				log.info(post.toString());
+			}
+		};
+	}
+
+	/*
 	@Bean
 	public CommandLineRunner dataLoader(PostRepository postRepo, BlockRepository blockRepo, PartnerRepository partnerRepo) {
 		return args -> {
@@ -35,7 +45,7 @@ public class DofizjoApplication {
 
 
 			// Fetching one
-			log.info("FETCHING PART BY ID 2: " + postRepo.findById(2L).toString());
+			log.info("FETCHING PART BY ID 2: " + postRepo.findById(2).toString());
 
 			// Fetching all
 			log.info("FETCHING ALL: ");
@@ -50,4 +60,5 @@ public class DofizjoApplication {
 			}
 		};
 	}
+	*/
 }

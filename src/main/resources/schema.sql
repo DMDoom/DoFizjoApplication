@@ -25,3 +25,9 @@ create table if not exists Review (
     discipline varchar(50) not null,
     opinion varchar(50) not null
 );
+
+create table if not exists Offer (
+    id identity,
+    name varchar(50) not null,
+    description varchar(50) not null
+);

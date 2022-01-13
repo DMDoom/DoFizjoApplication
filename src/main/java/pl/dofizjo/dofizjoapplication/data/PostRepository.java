@@ -23,7 +23,7 @@ public class PostRepository {
     }
 
     // Find by id
-    public Post findById(Long id) {
+    public Post findById(int id) {
         return jdbc.queryForObject(
                 "SELECT id, author, title, content, createdAt from POST where id=?",
                 new PostMapper(),
@@ -34,6 +34,11 @@ public class PostRepository {
     public List<Post> findRecent(int number) {
         return jdbc.query("SELECT * from POST ORDER BY createdAt DESC LIMIT ?",
                 new PostMapper(), number);
+    }
+
+    // Find latest one
+    public Post findLatestOne() {
+        return jdbc.queryForObject("SELECT TOP 1 * FROM POST ORDER BY createdAt DESC", new PostMapper());
     }
 
     // Find all
