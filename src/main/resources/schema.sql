@@ -23,7 +23,7 @@ create table if not exists Review (
     id identity,
     author varchar(50) not null,
     discipline varchar(50) not null,
-    opinion varchar(50) not null
+    opinion varchar(400) not null
 );
 
 create table if not exists Offer (

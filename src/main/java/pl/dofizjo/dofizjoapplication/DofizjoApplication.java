@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Bean;
 import pl.dofizjo.dofizjoapplication.data.BlockRepository;
 import pl.dofizjo.dofizjoapplication.data.PartnerRepository;
 import pl.dofizjo.dofizjoapplication.data.PostRepository;
+import pl.dofizjo.dofizjoapplication.data.ReviewRepository;
 import pl.dofizjo.dofizjoapplication.model.Partner;
 import pl.dofizjo.dofizjoapplication.model.Post;
+import pl.dofizjo.dofizjoapplication.model.Review;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +24,7 @@ public class DofizjoApplication {
 		SpringApplication.run(DofizjoApplication.class, args);
 	}
 
-	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo) {
+	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo) {
 		return args -> {
 			log.info("FETCHING ALL POSTS: ");
 			for (Post post : postRepo.findAll()) {
@@ -33,6 +35,11 @@ public class DofizjoApplication {
 			partnerRepo.add(new Partner(2, "resources/null", "LoremIpsum2", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			partnerRepo.add(new Partner(3, "resources/null", "LoremIpsum3", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			partnerRepo.add(new Partner(4, "resources/null", "LoremIpsum4", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+
+			reviewRepo.add(new Review(1, "Jan Kowalski", "MMA", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			reviewRepo.add(new Review(1, "Jan Kowalski", "Strongman", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			reviewRepo.add(new Review(1, "Jan Kowalski", "Taniec", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			reviewRepo.add(new Review(1, "Jan Kowalski", "Lorem", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 		};
 	}
 

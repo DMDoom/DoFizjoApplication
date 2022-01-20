@@ -231,58 +231,21 @@
 
         <div class=recommendations-table>
             <table>
-
                 <tr>
                     <th>Imie</th>
                     <th>Dyscyplina</th>
                 </tr>
 
-                <tr onClick='toggleRow(this)'>
-                    <td>Jan Kowalski</td>
-                    <td>MMA</td>
-                    <td class='expanded-row-content hide-row'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.</td>
+                <tr th:each="student: ${students}">
+                    <td th:text="${student.id}" />
+                    <td th:text="${student.name}" />
                 </tr>
 
-                <tr onClick='toggleRow(this)'>
-                    <td>Patryk Jakubczak</td>
-                    <td>Trójbój siłowy</td>
-                    <td class='expanded-row-content hide-row'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                </tr>
 
-                <tr onClick='toggleRow(this)'>
-                    <td>Jakub Patryczak</td>
-                    <td>Taniec</td>
-                    <td class='expanded-row-content hide-row'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                </tr>
-                <tr onClick='toggleRow(this)'>
-                    <td>Patrycjusz Jakubowski</td>
-                    <td>Strongman</td>
-                    <td class='expanded-row-content hide-row'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                </tr>
-                <tr onClick='toggleRow(this)'>
-                    <td>Bartłomiej Szelka</td>
-                    <td>Street workout</td>
-                    <td class='expanded-row-content hide-row'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                <tr onClick='toggleRow(this)' th:each="review : ${reviews}">
+                    <td th:text="${review.author}">Author</td>
+                    <td th:text="${review.discipline}">MMA</td>
+                    <td class='expanded-row-content hide-row' th:text="${review.opinion}">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                         galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
                         the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
