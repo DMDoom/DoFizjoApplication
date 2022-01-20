@@ -235,13 +235,6 @@
                     <th>Imie</th>
                     <th>Dyscyplina</th>
                 </tr>
-
-                <tr th:each="student: ${students}">
-                    <td th:text="${student.id}" />
-                    <td th:text="${student.name}" />
-                </tr>
-
-
                 <tr onClick='toggleRow(this)' th:each="review : ${reviews}">
                     <td th:text="${review.author}">Author</td>
                     <td th:text="${review.discipline}">MMA</td>
