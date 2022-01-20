@@ -35,18 +35,18 @@ public class PartnerRepository {
         return jdbc.query("SELECT * from PARTNER", new PartnerMapper());
     }
 
-    // Save one
-    public void save(Partner partner) {
+    // Add one
+    public void add(Partner partner) {
         jdbc.update("INSERT into PARTNER (img, name, description) values (?, ?, ?)",
                 partner.getImg(),
                 partner.getName(),
                 partner.getDescription());
     }
 
-    // Save all
-    public void saveAll(Iterable<Partner> list) {
+    // Add all
+    public void addAll(Iterable<Partner> list) {
         for (Partner partner : list) {
-            save(partner);
+            add(partner);
         }
     }
 
