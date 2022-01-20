@@ -210,49 +210,13 @@
 
     <!-- PARTNERS -->
     <div class="flex-partners revealcol">
-        <div class="flex-partner-block">
-            <img src="resources/partnerlogo1.png">
-            <h2>Hunter Gym</h2>
+        <div class="flex-partner-block" th:each="partner : ${partners}">
+            <img th:src="${partner.img}"> <!-- test later -->
+            <h2 th:text="${partner.name}">Name</h2>
             <div>
                 <hr>
             </div>
-            <p>In ornare imperdiet risus, at aliquet massa rutrum ac.
-                Vestibulum mollis massa lectus, et pulvinar libero porta et.
-                Ut enim quam, luctus eget venenatis ut, vehicula porttitor felis.
-                Praesent nunc leo, vehicula in ultricies id, commodo eu erat.</p>
-        </div>
-        <div class="flex-partner-block">
-            <img src="resources/partnerlogo2.png">
-            <h2>HAZE Dance</h2>
-            <div>
-                <hr>
-            </div>
-            <p>In ornare imperdiet risus, at aliquet massa rutrum ac.
-                Vestibulum mollis massa lectus, et pulvinar libero porta et.
-                Ut enim quam, luctus eget venenatis ut, vehicula porttitor felis.
-                Praesent nunc leo, vehicula in ultricies id, commodo eu erat.</p>
-        </div>
-        <div class="flex-partner-block">
-            <img src="resources/partnerlogo3.png">
-            <h2>Area Dance</h2>
-            <div>
-                <hr>
-            </div>
-            <p>In ornare imperdiet risus, at aliquet massa rutrum ac.
-                Vestibulum mollis massa lectus, et pulvinar libero porta et.
-                Ut enim quam, luctus eget venenatis ut, vehicula porttitor felis.
-                Praesent nunc leo, vehicula in ultricies id, commodo eu erat.</p>
-        </div>
-        <div class="flex-partner-block">
-            <img src="resources/partnerlogo4.jpg">
-            <h2>Organic Fitness</h2>
-            <div>
-                <hr>
-            </div>
-            <p>In ornare imperdiet risus, at aliquet massa rutrum ac.
-                Vestibulum mollis massa lectus, et pulvinar libero porta et.
-                Ut enim quam, luctus eget venenatis ut, vehicula porttitor felis.
-            </p>
+            <p th:text="${partner.description}">Description</p>
         </div>
     </div>
 

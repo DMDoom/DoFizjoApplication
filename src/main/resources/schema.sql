@@ -16,7 +16,7 @@ create table if not exists Partner (
     id identity,
     img varchar(50) not null,
     name varchar(50) not null,
-    description varchar(50) not null
+    description varchar(400) not null
 );
 
 create table if not exists Review (

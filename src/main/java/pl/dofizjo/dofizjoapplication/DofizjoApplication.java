@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import pl.dofizjo.dofizjoapplication.data.BlockRepository;
 import pl.dofizjo.dofizjoapplication.data.PartnerRepository;
 import pl.dofizjo.dofizjoapplication.data.PostRepository;
+import pl.dofizjo.dofizjoapplication.model.Partner;
 import pl.dofizjo.dofizjoapplication.model.Post;
 
 import java.util.Date;
@@ -21,12 +22,17 @@ public class DofizjoApplication {
 		SpringApplication.run(DofizjoApplication.class, args);
 	}
 
-	@Bean CommandLineRunner dataLoader(PostRepository postRepo) {
+	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo) {
 		return args -> {
-			log.info("FETCHING ALL: ");
+			log.info("FETCHING ALL POSTS: ");
 			for (Post post : postRepo.findAll()) {
 				log.info(post.toString());
 			}
+
+			partnerRepo.add(new Partner(1, "resources/null", "LoremIpsum1", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(2, "resources/null", "LoremIpsum2", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(3, "resources/null", "LoremIpsum3", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(4, "resources/null", "LoremIpsum4", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 		};
 	}
 
