@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 // Block of text, composed of h1 title and p content
 public class Block {
 
-    private int id;
+    private String id;
 
     @NotNull
     private String title;
