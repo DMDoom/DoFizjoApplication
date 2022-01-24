@@ -7,9 +7,9 @@ create table if not exists Post (
 );
 
 create table if not exists Block (
-    id identity,
+    id varchar(15) not null,
     title varchar(50) not null,
-    content varchar(50) not null
+    content varchar(500) not null
 );
 
 create table if not exists Partner (

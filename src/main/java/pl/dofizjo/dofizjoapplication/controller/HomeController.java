@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.dofizjo.dofizjoapplication.data.BlockRepository;
 import pl.dofizjo.dofizjoapplication.data.PartnerRepository;
 import pl.dofizjo.dofizjoapplication.data.PostRepository;
 import pl.dofizjo.dofizjoapplication.data.ReviewRepository;
@@ -18,15 +19,26 @@ public class HomeController {
     private PostRepository postRepo;
     private PartnerRepository partnerRepo;
     private ReviewRepository reviewRepo;
+    private BlockRepository blockRepo;
 
-    public HomeController(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo) {
+    public HomeController(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo) {
         this.postRepo = postRepo;
         this.partnerRepo = partnerRepo;
         this.reviewRepo = reviewRepo;
+        this.blockRepo = blockRepo;
     }
 
     @ModelAttribute
     public void loadData(Model model) {
+        // Blocks
+        model.addAttribute("lokalizacja", blockRepo.findById("lokalizacja"));
+        model.addAttribute("zapraszamy", blockRepo.findById("zapraszamy"));
+        model.addAttribute("metody", blockRepo.findById("metody"));
+        model.addAttribute("mateusz", blockRepo.findById("mateusz"));
+        model.addAttribute("karol", blockRepo.findById("karol"));
+        model.addAttribute("oferta", blockRepo.findById("oferta"));
+        model.addAttribute("kontakt", blockRepo.findById("kontakt"));
+
         // Partners
         model.addAttribute("partners", partnerRepo.findAll());
 
@@ -38,5 +50,4 @@ public class HomeController {
     public String getHomePage(Model model) {
         return "home";
     }
-
 }

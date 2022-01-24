@@ -9,6 +9,7 @@ import pl.dofizjo.dofizjoapplication.data.BlockRepository;
 import pl.dofizjo.dofizjoapplication.data.PartnerRepository;
 import pl.dofizjo.dofizjoapplication.data.PostRepository;
 import pl.dofizjo.dofizjoapplication.data.ReviewRepository;
+import pl.dofizjo.dofizjoapplication.model.Block;
 import pl.dofizjo.dofizjoapplication.model.Partner;
 import pl.dofizjo.dofizjoapplication.model.Post;
 import pl.dofizjo.dofizjoapplication.model.Review;
@@ -24,7 +25,7 @@ public class DofizjoApplication {
 		SpringApplication.run(DofizjoApplication.class, args);
 	}
 
-	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo) {
+	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo) {
 		return args -> {
 			log.info("FETCHING ALL POSTS: ");
 			for (Post post : postRepo.findAll()) {
@@ -43,7 +44,14 @@ public class DofizjoApplication {
 			reviewRepo.add(new Review(1, "Jan Kowalski", "Taniec", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			reviewRepo.add(new Review(1, "Jan Kowalski", "Lorem", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 
-			//
+			// Done
+			blockRepo.add(new Block("lokalizacja", "ul. Gdańska 28/4", "+48 731 278 308"));
+			blockRepo.add(new Block("zapraszamy", "zapraszamy", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem in erat bibendum scelerisque in in ipsum. Aliquam at interdum lorem. Donec vel odio vel lectus viverra scelerisque. Donec venenatis faucibus magna id viverra. Cras aliquet dignissim quam, vitae ultricies libero ultrices vitae. Phasellus ut fringilla purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero tortor, posuere sit amet nunc at, semper dictum purus. Etiam at purus eget nibh rutrum egestas."));
+			blockRepo.add(new Block("metody", "metody", "Aenean et bibendum felis, in vestibulum libero. Suspendisse nibh tortor, lobortis non odio nec, luctus rhoncus diam. Phasellus pretium, nulla nec volutpat tempor, ipsum est scelerisque augue, eget vestibulum neque velit et nunc. Ut suscipit augue ex, ac auctor orci interdum vitae. Morbi posuere lacinia enim sit amet sollicitudin."));
+			blockRepo.add(new Block("mateusz", "Mateusz", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
+			blockRepo.add(new Block("karol", "Karol", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
+			blockRepo.add(new Block("oferta", "analiza i terapia", "Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor, quis fermentum tellus augue id turpis. Fusce pulvinar quis sem sit amet suscipit."));
+			blockRepo.add(new Block("kontakt", "kontakt", "dofizjoterapeuty@gmail.com"));
 		};
 	}
 

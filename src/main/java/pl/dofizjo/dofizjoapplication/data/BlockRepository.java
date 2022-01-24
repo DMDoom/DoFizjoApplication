@@ -23,7 +23,7 @@ public class BlockRepository {
     }
 
     // Find by id
-    public Block findById(Long id) {
+    public Block findById(String id) {
         return jdbc.queryForObject("SELECT id, title, content from BLOCK where id=?",
                 new BlockMapper(),
                 id);
@@ -35,8 +35,10 @@ public class BlockRepository {
     }
 
     // Add one
+    // DIFFERENT FROM ALL OTHER REPOSITORY METHODS in that it also inserts id manually
     public void add(Block block) {
-        jdbc.update("INSERT into BLOCK (title, content) values (?, ?)",
+        jdbc.update("INSERT into BLOCK (id, title, content) values (?, ?, ?)",
+                block.getId(),
                 block.getTitle(),
                 block.getContent());
     }
@@ -52,7 +54,8 @@ public class BlockRepository {
     public void overwrite(Block block) {
         deleteById(block.getId());
 
-        jdbc.update("INSERT into BLOCK (title, content) values (?, ?)",
+        jdbc.update("INSERT into BLOCK (id, title, content) values (?, ?, ?)",
+                block.getId(),
                 block.getTitle(),
                 block.getContent());
     }
@@ -65,7 +68,7 @@ public class BlockRepository {
     }
 
     // Delete by id
-    public void deleteById(int id) {
+    public void deleteById(String id) {
         jdbc.update("DELETE from BLOCK where id=?", id);
     }
 }

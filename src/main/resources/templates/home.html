@@ -17,8 +17,8 @@
 <div class="header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" id="quick-contact-address">ul. Gdańska 28/4</a>
-            <a href="#link" id="quick-contact-phone">+48 731 278 308</a>
+            <a href="#link" id="quick-contact-address" th:text="${lokalizacja.title}"> address </a>
+            <a href="#link" id="quick-contact-phone" th:text="${lokalizacja.content}"> phone </a>
         </div>
         <div class="navigation-link-flex">
             <a href="#link">o nas</a>
@@ -37,18 +37,9 @@
     <!-- WELCOME BLOCK -->
     <div class="flex-welcome-block">
         <div class="welcome-text revealrowleft">
-            <h1>zapraszamy</h1>
+            <h1 th:text="${zapraszamy.title}"> zapraszamy </h1>
             <hr>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nunc in lorem in erat bibendum scelerisque in in ipsum.
-                Aliquam at interdum lorem.
-                Donec vel odio vel lectus viverra scelerisque.
-                Donec venenatis faucibus magna id viverra.
-                Cras aliquet dignissim quam, vitae ultricies libero ultrices vitae.
-                Phasellus ut fringilla purus. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Praesent libero tortor,
-                posuere sit amet nunc at, semper dictum purus.
-                Etiam at purus eget nibh rutrum egestas.</p>
+            <p th:text="${zapraszamy.content}"> opis </p>
         </div>
         <div class="cycle revealrowright">
             <div class="slider">
@@ -108,15 +99,9 @@
     <!-- IMAGE BLOCK -->
     <div class="image-separator">
         <div class="image-text revealcol">
-            <h1>metody</h1>
+            <h1 th:text="${metody.title}"> metody </h1>
             <hr>
-            <p>Aenean et bibendum felis, in vestibulum libero.
-                Suspendisse nibh tortor, lobortis non odio nec, luctus rhoncus diam.
-                Phasellus pretium, nulla nec volutpat tempor,
-                ipsum est scelerisque augue, eget vestibulum neque velit et nunc.
-                Ut suscipit augue ex, ac auctor orci interdum vitae.
-                Morbi posuere lacinia enim sit amet sollicitudin.
-            </p>
+            <p th:text="${metody.content}"> opis </p>
         </div>
     </div>
 
@@ -125,18 +110,13 @@
         <div class="grid-left">
             <div class="mateusz">
                 <img th:src="@{images/mateusz.jpg}" class="revealrowleft">
-                <h2 class="revealrowleft"> Mateusz </h2>
-                <p class="revealrowleft">In dictum, nibh sed auctor venenatis,
-                    orci ante condimentum lorem, in mattis orci nisl ac nisi.
-                    Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim,
-                    neque leo consequat dolor.</p>
+                <h2 class="revealrowleft" th:text="${mateusz.title}"> mateusz </h2>
+                <p class="revealrowleft" th:text="${mateusz.content}"> opis </p>
             </div>
             <div class="offer">
                 <h1 class="revealrowleft"> oferta </h1>
-                <h2 class="revealrowleft"> analiza i terapia </h2>
-                <p class="revealrowleft"> Etiam faucibus, metus nec porta dignissim,
-                    neque leo consequat dolor, quis fermentum tellus augue id turpis.
-                    Fusce pulvinar quis sem sit amet suscipit. </p>
+                <h2 class="revealrowleft" th:text="${oferta.title}"> analiza i terapia </h2>
+                <p class="revealrowleft" th:text="${oferta.content}"> opis </p>
                 <img th:src="@{images/offer.jpg}" class="revealrowleft">
             </div>
             <div class="therapy-left">
@@ -167,11 +147,8 @@
             </div>
             <div class="karol">
                 <img th:src="@{images/karol.jpg}" class="revealrowright">
-                <h2 class="revealrowright"> Karol </h2>
-                <p class="revealrowright">In dictum, nibh sed auctor venenatis,
-                    orci ante condimentum lorem, in mattis orci nisl ac nisi.
-                    Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim,
-                    neque leo consequat dolor.</p>
+                <h2 class="revealrowright" th:text="${karol.title}"> karol </h2>
+                <p class="revealrowright" th:text="${karol.content}"> opis </p>
             </div>
             <div class="therapy-right">
                 <div class="right-therapy-block revealrowright" id="right-therapy-block-first">
@@ -193,9 +170,9 @@
             </div>
             <div class="contact">
                 <h1 class="revealrowright">kontakt</h1>
-                <h2 class="revealrowright">dofizjoterapeuty@gmail.com</h2>
-                <h2 class="revealrowright" id="phone">+48 731 278 308</h2>
-                <h2 class="revealrowright">Gdańska 28/4</h2>
+                <h2 class="revealrowright" th:text="${kontakt.content}"> email </h2>
+                <h2 class="revealrowright" id="phone" th:text="${lokalizacja.content}"> phone </h2>
+                <h2 class="revealrowright" th:text="${lokalizacja.title}"> address </h2>
                 <img th:src="@{images/logo.png}" class="revealrowright">
             </div>
         </div>
@@ -211,12 +188,12 @@
     <!-- PARTNERS -->
     <div class="flex-partners revealcol">
         <div class="flex-partner-block" th:each="partner : ${partners}">
-            <img th:src="${partner.img}"> <!-- test later -->
-            <h2 th:text="${partner.name}">Name</h2>
+            <img th:src="${partner.img}">
+            <h2 th:text="${partner.name}"> nazwa </h2>
             <div>
                 <hr>
             </div>
-            <p th:text="${partner.description}">Description</p>
+            <p th:text="${partner.description}"> opis </p>
         </div>
     </div>
 
