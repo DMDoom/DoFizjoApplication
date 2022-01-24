@@ -26,7 +26,7 @@
             <a href="#link">rekomendacje</a>
             <a href="#link">kontakt</a>
             <a href="#link">blog</a>
-            <img src="resources/logo.png" width="85" height="85">
+            <img th:src="@{images/logo.png}" width="85" height="85">
         </div>
     </div>
     <div class="separator"></div>
@@ -61,16 +61,16 @@
 
                     <!--slide images start-->
                     <div class="slide first">
-                        <img src="resources/3trimmed.jpg" alt="">
+                        <img th:src="@{images/1slide.jpg}" alt="">
                     </div>
                     <div class="slide">
-                        <img src="resources/compressed2.jpg" alt="">
+                        <img th:src="@{images/2slide.jpg}" alt="">
                     </div>
                     <div class="slide">
-                        <img src="resources/compressed3.jpg" alt="">
+                        <img th:src="@{images/3slide.jpg}" alt="">
                     </div>
                     <div class="slide">
-                        <img src="resources/compressed.jpg" alt="">
+                        <img th:src="@{images/4slide.jpg}" alt="">
                     </div>
 
                     <!--automatic navigation start-->
@@ -124,7 +124,7 @@
     <div class="container">
         <div class="grid-left">
             <div class="mateusz">
-                <img src="resources/2.jpg" class="revealrowleft">
+                <img th:src="@{images/mateusz.jpg}" class="revealrowleft">
                 <h2 class="revealrowleft"> Mateusz </h2>
                 <p class="revealrowleft">In dictum, nibh sed auctor venenatis,
                     orci ante condimentum lorem, in mattis orci nisl ac nisi.
@@ -137,7 +137,7 @@
                 <p class="revealrowleft"> Etiam faucibus, metus nec porta dignissim,
                     neque leo consequat dolor, quis fermentum tellus augue id turpis.
                     Fusce pulvinar quis sem sit amet suscipit. </p>
-                <img src="resources/6.jpg" class="revealrowleft">
+                <img th:src="@{images/offer.jpg}" class="revealrowleft">
             </div>
             <div class="therapy-left">
                 <div class="left-therapy-block revealrowleft" id="left-therapy-block-first">
@@ -157,16 +157,16 @@
         </div>
 
         <div class="grid-middle">
-            <img src="resources/line.png">
+            <img th:src="@{images/line.png}">
         </div>
 
         <div class="grid-right">
             <div class="social-media">
                 <h1 class="revealrowright"> o nas </h1>
-                <img src="resources/socials.png" class="revealrowright">
+                <img th:src="@{images/socials.png}" class="revealrowright">
             </div>
             <div class="karol">
-                <img src="resources/1.jpg" class="revealrowright">
+                <img th:src="@{images/karol.jpg}" class="revealrowright">
                 <h2 class="revealrowright"> Karol </h2>
                 <p class="revealrowright">In dictum, nibh sed auctor venenatis,
                     orci ante condimentum lorem, in mattis orci nisl ac nisi.
@@ -196,7 +196,7 @@
                 <h2 class="revealrowright">dofizjoterapeuty@gmail.com</h2>
                 <h2 class="revealrowright" id="phone">+48 731 278 308</h2>
                 <h2 class="revealrowright">Gdańska 28/4</h2>
-                <img src="resources/logo.png" class="revealrowright">
+                <img th:src="@{images/logo.png}" class="revealrowright">
             </div>
         </div>
     </div>
@@ -254,7 +254,7 @@
             </script>
 
         <div class="footer">
-            <img src="resources/footer.png">
+            <img th:src="@{images/footer.png}">
         </div>
     </div>
 

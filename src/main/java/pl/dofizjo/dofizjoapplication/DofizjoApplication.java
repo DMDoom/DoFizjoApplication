@@ -31,15 +31,19 @@ public class DofizjoApplication {
 				log.info(post.toString());
 			}
 
-			partnerRepo.add(new Partner(1, "resources/null", "LoremIpsum1", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
-			partnerRepo.add(new Partner(2, "resources/null", "LoremIpsum2", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
-			partnerRepo.add(new Partner(3, "resources/null", "LoremIpsum3", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
-			partnerRepo.add(new Partner(4, "resources/null", "LoremIpsum4", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			// Done
+			partnerRepo.add(new Partner(1, "/images/logos/areadance.png", "Area Dance", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(2, "/images/logos/hazestudio.png", "Haze Studio", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(3, "/images/logos/huntergym.png", "Hunter Gym", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(4, "/images/logos/organicfitness.png", "Organic Fitness", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 
+			// Done
 			reviewRepo.add(new Review(1, "Jan Kowalski", "MMA", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			reviewRepo.add(new Review(1, "Jan Kowalski", "Strongman", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			reviewRepo.add(new Review(1, "Jan Kowalski", "Taniec", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			reviewRepo.add(new Review(1, "Jan Kowalski", "Lorem", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+
+			//
 		};
 	}
 
