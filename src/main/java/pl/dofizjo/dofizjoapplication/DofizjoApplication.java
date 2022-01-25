@@ -5,14 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import pl.dofizjo.dofizjoapplication.data.BlockRepository;
-import pl.dofizjo.dofizjoapplication.data.PartnerRepository;
-import pl.dofizjo.dofizjoapplication.data.PostRepository;
-import pl.dofizjo.dofizjoapplication.data.ReviewRepository;
-import pl.dofizjo.dofizjoapplication.model.Block;
-import pl.dofizjo.dofizjoapplication.model.Partner;
-import pl.dofizjo.dofizjoapplication.model.Post;
-import pl.dofizjo.dofizjoapplication.model.Review;
+import pl.dofizjo.dofizjoapplication.data.*;
+import pl.dofizjo.dofizjoapplication.model.*;
 
 import java.util.Date;
 import java.util.List;
@@ -25,7 +19,7 @@ public class DofizjoApplication {
 		SpringApplication.run(DofizjoApplication.class, args);
 	}
 
-	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo) {
+	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo) {
 		return args -> {
 			log.info("FETCHING ALL POSTS: ");
 			for (Post post : postRepo.findAll()) {
@@ -55,6 +49,11 @@ public class DofizjoApplication {
 			blockRepo.add(new Block("kontakt", "kontakt", "dofizjoterapeuty@gmail.com"));
 
 			// Methods
+			methodRepo.add(new Method("Terapia skojarzona", "Terapia zawierająca w sobie wszystkie metody potrzebne do zmniejszenia lub całkowitego zniesienia bólu."));
+			methodRepo.add(new Method("Terapia powięziowa", "Jest to praca na tkankach miękkich mająca na celu normalizacje napięć, a w efekcie zmniejszenie dolegliwości bólowych w układzie ruchu."));
+			methodRepo.add(new Method("Korekcja wad postawy", "Terapia mająca na celu, zmniejszenie lub wyeliminowanie asymetrii w ciele."));
+			methodRepo.add(new Method("Kinesiotaping", "plastrowanie dynamiczne powoduje normalizacje napięcia mięśniowego, w zależności od rodzaju aplikacji poprawia ruchomości, zmniejsza dolegliwości bólowe, czy wspomaga drenaż limfatyczny."));
+			methodRepo.add(new Method("Masaż klasyczny", "Powtarzalna sekwencja ruchów - praca na powierzchownych tkankach miękkich, w celu poprawy regeneracji. Niezalecany dla pacjentów bólowych."));
 
 			for (Block block : blockRepo.findAll()) {
 				log.info(block.toString());

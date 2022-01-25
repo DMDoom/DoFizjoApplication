@@ -6,10 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.dofizjo.dofizjoapplication.data.BlockRepository;
-import pl.dofizjo.dofizjoapplication.data.PartnerRepository;
-import pl.dofizjo.dofizjoapplication.data.PostRepository;
-import pl.dofizjo.dofizjoapplication.data.ReviewRepository;
+import pl.dofizjo.dofizjoapplication.data.*;
+import pl.dofizjo.dofizjoapplication.model.Method;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -20,12 +21,14 @@ public class HomeController {
     private PartnerRepository partnerRepo;
     private ReviewRepository reviewRepo;
     private BlockRepository blockRepo;
+    private MethodRepository methodRepo;
 
-    public HomeController(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo) {
+    public HomeController(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo) {
         this.postRepo = postRepo;
         this.partnerRepo = partnerRepo;
         this.reviewRepo = reviewRepo;
         this.blockRepo = blockRepo;
+        this.methodRepo = methodRepo;
     }
 
     @ModelAttribute
@@ -47,7 +50,9 @@ public class HomeController {
         model.addAttribute("reviews", reviewRepo.findAll());
 
         // Methods
-
+        List<Method> methods = methodRepo.findAll();
+        model.addAttribute("methodsLeft", new ArrayList<>(methods.subList(0, 2)));
+        model.addAttribute("methodsRight", new ArrayList<>(methods.subList(2, methods.size())));
     }
 
     @GetMapping

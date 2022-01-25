@@ -117,23 +117,16 @@
                 <h2 class="revealrowleft" th:text="${mateusz.title}"> mateusz </h2>
                 <p class="revealrowleft" th:text="${mateusz.content}"> opis </p>
             </div>
-
-            <div class="method">
+            <div class="methods">
                 <h1 class="revealrowleft"> oferta </h1>
-                <h2 class="revealrowleft" th:text="${oferta.title}"> analiza i terapia </h2>
-                <p class="revealrowleft" th:text="${oferta.content}"> opis </p>
+                <h2 class="revealrowleft" th:text="${metody.title}"> analiza i terapia </h2>
+                <p class="revealrowleft" th:text="${metody.content}"> opis </p>
                 <img th:src="@{images/method.jpg}" class="revealrowleft">
             </div>
             <div class="therapy-left">
-                <div class="left-therapy-block revealrowleft" id="left-therapy-block-first">
-                    <h2>masaż klasyczny</h2>
-                    <p> Vivamus dui enim, euismod nec lectus in, dapibus ultricies est.
-                        Praesent ultrices.</p>
-                </div>
-                <div class="left-therapy-block revealrowleft">
-                    <h2>kinesiotaping</h2>
-                    <p> Vivamus dui enim, euismod nec lectus in, dapibus ultricies est.
-                        Praesent ultrices.</p>
+                <div class="left-therapy-block revealrowleft" th:each="method : ${methodsLeft}">
+                    <h2 th:text="${method.name}"> metoda </h2>
+                    <p th:text="${method.description}"> opis </p>
                 </div>
             </div>
             <div class="location revealrowleft">
@@ -157,21 +150,9 @@
                 <p class="revealrowright" th:text="${rafal.content}"> opis </p>
             </div>
             <div class="therapy-right">
-                <div class="right-therapy-block revealrowright" id="right-therapy-block-first">
-                    <h2>terapia powięziowa</h2>
-                    <p> Vivamus dui enim, euismod nec lectus in, dapibus ultricies est.
-                        Praesent ultrices.
-                    </p>
-                </div>
-                <div class="right-therapy-block revealrowright">
-                    <h2>terapia celowana</h2>
-                    <p> Vivamus dui enim, euismod nec lectus in, dapibus ultricies est.
-                        Praesent ultrices.</p>
-                </div>
-                <div class="right-therapy-block revealrowright">
-                    <h2>terapia łączona</h2>
-                    <p> Vivamus dui enim, euismod nec lectus in, dapibus ultricies est.
-                        Praesent ultrices.</p>
+                <div class="right-therapy-block revealrowright" th:each="method : ${methodsRight}">
+                    <h2 th:text="${method.name}"> metoda </h2>
+                    <p th:text="${method.description}"> opis </p>
                 </div>
             </div>
             <div class="contact">

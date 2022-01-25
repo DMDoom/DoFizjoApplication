@@ -28,6 +28,6 @@ create table if not exists Review (
 
 create table if not exists Method (
     id identity,
-    name varchar(50) not null,
-    description varchar(50) not null
+    name varchar(100) not null,
+    description varchar(500) not null
 );

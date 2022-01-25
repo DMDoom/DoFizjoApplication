@@ -250,21 +250,21 @@ p {
     text-align: right;
 }
 
-.offer {
+.methods {
     display: flex;
     flex-direction: column;
 }
 
-.offer h1 {
+.methods h1 {
     margin-top: 150px;
     margin-bottom: 0px;
 }
 
-.offer h2 {
+.methods h2 {
     margin-top: 0px;
 }
 
-.offer img {
+.methods img {
     max-width: 450px;
     align-self: flex-end;
     border-radius: 20px;
