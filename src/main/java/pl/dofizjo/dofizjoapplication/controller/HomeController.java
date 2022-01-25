@@ -45,6 +45,9 @@ public class HomeController {
 
         // Reviews
         model.addAttribute("reviews", reviewRepo.findAll());
+
+        // Methods
+
     }
 
     @GetMapping

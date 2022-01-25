@@ -99,9 +99,9 @@
     <!-- IMAGE BLOCK -->
     <div class="image-separator">
         <div class="image-text revealcol">
-            <h1 th:text="${metody.title}"> metody </h1>
+            <h1 th:text="${oferta.title}"> oferta </h1>
             <hr>
-            <p th:text="${metody.content}"> opis </p>
+            <p th:text="${oferta.content}"> opis </p>
         </div>
     </div>
 
@@ -118,11 +118,11 @@
                 <p class="revealrowleft" th:text="${mateusz.content}"> opis </p>
             </div>
 
-            <div class="offer">
+            <div class="method">
                 <h1 class="revealrowleft"> oferta </h1>
                 <h2 class="revealrowleft" th:text="${oferta.title}"> analiza i terapia </h2>
                 <p class="revealrowleft" th:text="${oferta.content}"> opis </p>
-                <img th:src="@{images/offer.jpg}" class="revealrowleft">
+                <img th:src="@{images/method.jpg}" class="revealrowleft">
             </div>
             <div class="therapy-left">
                 <div class="left-therapy-block revealrowleft" id="left-therapy-block-first">

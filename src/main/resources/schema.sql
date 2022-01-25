@@ -26,7 +26,7 @@ create table if not exists Review (
     opinion varchar(400) not null
 );
 
-create table if not exists Offer (
+create table if not exists Method (
     id identity,
     name varchar(50) not null,
     description varchar(50) not null
