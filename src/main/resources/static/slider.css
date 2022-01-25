@@ -43,7 +43,7 @@
 
 .navigation-manual {
     position: absolute;
-    width: 800px;
+    width: var(--imgWidthPC);
     margin-top: -40px;
     display: flex;
     justify-content: center;
@@ -86,7 +86,7 @@
 .navigation-auto{
     position: absolute;
     display: flex;
-    width: 800px;
+    width: var(--imgWidthPC);
     justify-content: center;
     margin-top: -40px;
 }
@@ -132,5 +132,13 @@
     .slide img {
         width: var(--imgWidthLaptop);
         height: var(--imgHeightLaptop);
+    }
+
+    .navigation-manual {
+        width: var(--imgWidthLaptop);
+    }
+
+    .navigation-auto {
+        width: var(--imgWidthLaptop);
     }
 }

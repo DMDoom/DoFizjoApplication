@@ -21,11 +21,6 @@ public class DofizjoApplication {
 
 	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo) {
 		return args -> {
-			log.info("FETCHING ALL POSTS: ");
-			for (Post post : postRepo.findAll()) {
-				log.info(post.toString());
-			}
-
 			// Partners
 			partnerRepo.add(new Partner(1, "/images/logos/areadance.png", "Area Dance", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			partnerRepo.add(new Partner(2, "/images/logos/hazestudio.png", "Haze Studio", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
@@ -54,10 +49,6 @@ public class DofizjoApplication {
 			methodRepo.add(new Method("Korekcja wad postawy", "Terapia mająca na celu, zmniejszenie lub wyeliminowanie asymetrii w ciele."));
 			methodRepo.add(new Method("Kinesiotaping", "plastrowanie dynamiczne powoduje normalizacje napięcia mięśniowego, w zależności od rodzaju aplikacji poprawia ruchomości, zmniejsza dolegliwości bólowe, czy wspomaga drenaż limfatyczny."));
 			methodRepo.add(new Method("Masaż klasyczny", "Powtarzalna sekwencja ruchów - praca na powierzchownych tkankach miękkich, w celu poprawy regeneracji. Niezalecany dla pacjentów bólowych."));
-
-			for (Block block : blockRepo.findAll()) {
-				log.info(block.toString());
-			}
 		};
 	}
 

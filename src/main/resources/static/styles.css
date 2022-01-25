@@ -342,7 +342,7 @@ p {
     margin-top: 0px;
 }
 
-#right-therapy-block-first {
+.therapy-right {
     margin-top: 100px;
 }
 
@@ -362,8 +362,6 @@ p {
 
 .right-therapy-block h2 {
     font-weight: lighter;
-    padding: 5px;
-    padding-left: 10px;
 }
 
 .contact h1 {
@@ -566,7 +564,7 @@ tr:hover {
     transition: all 2s ease;
 }
 
-.revealcol.active{
+.revealcol.active {
     transform: translateY(0px);
     opacity: 1;
 }
@@ -578,7 +576,7 @@ tr:hover {
     transition: all 2s ease;
 }
 
-.revealrowright.active{
+.revealrowright.active {
     transform: translateX(0px);
     opacity: 1;
 }
@@ -590,15 +588,14 @@ tr:hover {
     transition: all 2s ease;
 }
 
-.revealrowleft.active{
+.revealrowleft.active {
     transform: translateX(0px);
     opacity: 1;
 }
 
-@media only screen and (max-width: 1400px)
+@media only screen and (max-width: 1600px)
 {
-    .wrapper
-    {
+    .wrapper {
          margin-left: 0px;
          margin-right: 0px;
     }
@@ -620,5 +617,13 @@ tr:hover {
 
     p {
         font-size: 20px;
+    }
+
+    .revealrowright {
+        transform: translateX(75px);
+    }
+
+    .revealrowleft {
+        transform: translateX(-75px);
     }
 }
