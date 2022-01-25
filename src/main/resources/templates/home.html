@@ -108,11 +108,16 @@
     <!-- GRID -->
     <div class="container">
         <div class="grid-left">
+            <div class="social-media">
+                <h1 class="revealrowleft"> o nas </h1>
+                <img th:src="@{images/socials.png}" class="revealrowleft">
+            </div>
             <div class="mateusz">
                 <img th:src="@{images/mateusz.jpg}" class="revealrowleft">
                 <h2 class="revealrowleft" th:text="${mateusz.title}"> mateusz </h2>
                 <p class="revealrowleft" th:text="${mateusz.content}"> opis </p>
             </div>
+
             <div class="offer">
                 <h1 class="revealrowleft"> oferta </h1>
                 <h2 class="revealrowleft" th:text="${oferta.title}"> analiza i terapia </h2>
@@ -132,7 +137,7 @@
                 </div>
             </div>
             <div class="location revealrowleft">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2394.002984361799!2d18.00399471601552!3d53.12809199873738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470313bf459266a9%3A0x6d04f2adcb4f0bdf!2sGda%C5%84ska%2028%2C%2085-006%20Bydgoszcz!5e0!3m2!1sen!2spl!4v1640196692473!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2394.002984361799!2d18.00399471601552!3d53.12809199873738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470313bf459266a9%3A0x6d04f2adcb4f0bdf!2sGda%C5%84ska%2028%2C%2085-006%20Bydgoszcz!5e0!3m2!1sen!2spl!4v1640196692473!5m2!1sen!2spl" width="600" height="450" style="border:0; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 100px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -141,14 +146,15 @@
         </div>
 
         <div class="grid-right">
-            <div class="social-media">
-                <h1 class="revealrowright"> o nas </h1>
-                <img th:src="@{images/socials.png}" class="revealrowright">
-            </div>
             <div class="karol">
                 <img th:src="@{images/karol.jpg}" class="revealrowright">
                 <h2 class="revealrowright" th:text="${karol.title}"> karol </h2>
                 <p class="revealrowright" th:text="${karol.content}"> opis </p>
+            </div>
+            <div class="karol">
+                <img th:src="@{images/rafal.jpg}" class="revealrowright">
+                <h2 class="revealrowright" th:text="${rafal.title}"> rafal </h2>
+                <p class="revealrowright" th:text="${rafal.content}"> opis </p>
             </div>
             <div class="therapy-right">
                 <div class="right-therapy-block revealrowright" id="right-therapy-block-first">

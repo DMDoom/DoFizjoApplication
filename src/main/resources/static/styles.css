@@ -160,15 +160,15 @@ p {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-text {
     float: right;
     background-color: white;
     max-width: 500px;
-    margin-top: 150px;
-    /*margin-left: 150px;*/
-    margin-right: 600px;
     padding: 40px;
 }
 
@@ -228,7 +228,7 @@ p {
 }
 
 .mateusz {
-    margin-top: 75px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
 }
@@ -280,6 +280,8 @@ p {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 15px;
     transition: ease-in 0.5s;
+    float: right;
+    max-width: 500px;
 }
 
 .left-therapy-block:hover {
@@ -310,9 +312,17 @@ p {
     text-align: left;
 }
 
+.social-media {
+    margin-top: 150px;
+}
+
 .social-media h1 {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.social-media img {
+    margin-left: 300px; /* a fucking hack*/
 }
 
 .karol {
@@ -333,7 +343,7 @@ p {
 }
 
 #right-therapy-block-first {
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .right-therapy-block {
@@ -343,6 +353,7 @@ p {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 15px;
     transition: ease-in 0.5s;
+    max-width: 500px;
 }
 
 .right-therapy-block:hover {

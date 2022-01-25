@@ -36,7 +36,7 @@ public class DofizjoApplication {
 			partnerRepo.add(new Partner(1, "/images/logos/areadance.png", "Area Dance", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			partnerRepo.add(new Partner(2, "/images/logos/hazestudio.png", "Haze Studio", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 			partnerRepo.add(new Partner(3, "/images/logos/huntergym.png", "Hunter Gym", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
-			partnerRepo.add(new Partner(4, "/images/logos/organicfitness.png", "Organic Fitness", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
+			partnerRepo.add(new Partner(4, "/images/logos/organicfitness.jpg", "Organic Fitness", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 
 			// Done
 			reviewRepo.add(new Review(1, "Jan Kowalski", "MMA", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
@@ -50,8 +50,13 @@ public class DofizjoApplication {
 			blockRepo.add(new Block("metody", "metody", "Aenean et bibendum felis, in vestibulum libero. Suspendisse nibh tortor, lobortis non odio nec, luctus rhoncus diam. Phasellus pretium, nulla nec volutpat tempor, ipsum est scelerisque augue, eget vestibulum neque velit et nunc. Ut suscipit augue ex, ac auctor orci interdum vitae. Morbi posuere lacinia enim sit amet sollicitudin."));
 			blockRepo.add(new Block("mateusz", "Mateusz", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
 			blockRepo.add(new Block("karol", "Karol", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
+			blockRepo.add(new Block("rafal", "Rafał", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
 			blockRepo.add(new Block("oferta", "analiza i terapia", "Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor, quis fermentum tellus augue id turpis. Fusce pulvinar quis sem sit amet suscipit."));
 			blockRepo.add(new Block("kontakt", "kontakt", "dofizjoterapeuty@gmail.com"));
+
+			for (Block block : blockRepo.findAll()) {
+				log.info(block.toString());
+			}
 		};
 	}
 

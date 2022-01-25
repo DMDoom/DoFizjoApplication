@@ -36,6 +36,7 @@ public class HomeController {
         model.addAttribute("metody", blockRepo.findById("metody"));
         model.addAttribute("mateusz", blockRepo.findById("mateusz"));
         model.addAttribute("karol", blockRepo.findById("karol"));
+        model.addAttribute("rafal", blockRepo.findById("rafal"));
         model.addAttribute("oferta", blockRepo.findById("oferta"));
         model.addAttribute("kontakt", blockRepo.findById("kontakt"));
 
