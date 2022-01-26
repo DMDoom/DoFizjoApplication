@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- STYLESHEET -->
+        <link rel="stylesheet" th:href="@{/cms-styles.css}">
+
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 style="margin-top: 75px;"> panel sterowania </h1>
+        <div class="tiles-panel">
+            <div class="tile">
+                <img th:src="@{images/miniatures/browser.png}">
+                <p> Edytuj treść </p>
+            </div>
+            <div class="tile">
+                <img th:src="@{images/miniatures/newspaper.png}">
+                <p> Edytuj blog </p>
+            </div>
+            <div class="tile">
+                <img th:src="@{images/miniatures/bar-chart.png}">
+                <p> Statystyka </p>
+            </div>
+            <div class="tile">
+                <img th:src="@{images/miniatures/calendar.png}">
+                <p> Kaldendarz </p>
+            </div>
+            <div class="tile">
+                <img th:src="@{images/miniatures/email.png}">
+                <p> Mail </p>
+            </div>
+            <div class="tile">
+                <img th:src="@{images/miniatures/download.png}">
+                <p> Kopia zapasowa bazy danych </p>
+            </div>
+        </div>
+    </body>
+</html>
