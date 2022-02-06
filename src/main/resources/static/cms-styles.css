@@ -8,7 +8,7 @@
     --fontMinor: 'Barlow', sans-serif;
 }
 
-p { 
+p {
     font-family: var(--fontMajor);
     font-size: 24px;
 }
@@ -103,6 +103,50 @@ body {
     text-align: left;
 }
 
+/* BUTTON */
+.input-button {
+    background-color: var(--siteMinor);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.input-button:hover {
+    transform: scale(1.1);
+}
+
+.delete-button {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.delete-button:hover {
+    transform: scale(1.1);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
 /* EDIT PANEL */
 .edit-panel {
     display: flex;
@@ -146,21 +190,137 @@ body {
     padding: 10px;
 }
 
-.input-button {
-    background-color: var(--siteMinor);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
+/* REVIEW PANEL */
+.review-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 50px;
 }
 
-.input-button:hover {
-    transform: scale(1.1);
+.review-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px;
+    min-height: 200px;
+    min-width: 200px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.input-name {
+    font-family: var(--fontMajor);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input-discipline {
+    font-family: var(--fontMajor);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input-opinion {
+    font-family: var(--fontMajor);
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "static-grid review-grid review-grid"
+      "static-grid partner-grid partner-grid"
+      "static-grid method-grid method-grid";
+  }
+
+  .static-grid { grid-area: static-grid; }
+
+  .review-grid { grid-area: review-grid; }
+
+  .partner-grid { grid-area: partner-grid; }
+
+  .method-grid { grid-area: method-grid; }
+
+  /* REVIEW PANEL */
+.partner-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 50px;
+
+}
+
+.partner-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px;
+    min-height: 200px;
+    min-width: 200px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.input-org {
+    font-family: var(--fontMajor);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input-image {
+    font-family: var(--fontMajor);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input-description {
+    font-family: var(--fontMajor);
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* METHOD PANEL */
+.method-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 50px;
+}
+
+.method-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px;
+    min-height: 200px;
+    min-width: 200px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
