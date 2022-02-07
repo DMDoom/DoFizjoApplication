@@ -48,7 +48,7 @@ public class EditController {
         model.addAttribute("partner", new Partner());
         model.addAttribute("review", new Review());
 
-        return "edit";
+        return "editcontent";
     }
 
     // Blocks
