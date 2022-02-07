@@ -38,12 +38,16 @@
                     <p th:text="${currentPost.content}"> Content </p>
                 </div>
                 <div class="blog-navigation">
-                    <a th:href="@{'/blog/' + ${currentPost.id - 1}}">
-                        <span><< Starszy post</span>
-                    </a>
-                    <a th:href="@{'/blog/' + ${currentPost.id + 1}}">
-                        <span>Nowszy post >></span>
-                    </a>
+                    <span th:if="${olderPost != null}">
+                        <a th:href="@{'/blog/' + ${olderPost.id}}">
+                            <span><< Starszy post</span>
+                        </a>
+                    </span>
+                    <span th:if="${newerPost != null}">
+                        <a th:href="@{'/blog/' + ${newerPost.id}}"> <!-- Property or field 'id' cannot be found on null -->
+                            <span>Nowszy post >></span>
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>

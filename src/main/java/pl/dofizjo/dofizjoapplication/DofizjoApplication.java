@@ -50,11 +50,6 @@ public class DofizjoApplication {
 			methodRepo.add(new Method("Korekcja wad postawy", "Terapia mająca na celu, zmniejszenie lub wyeliminowanie asymetrii w ciele."));
 			methodRepo.add(new Method("Kinesiotaping", "plastrowanie dynamiczne powoduje normalizacje napięcia mięśniowego, w zależności od rodzaju aplikacji poprawia ruchomości, zmniejsza dolegliwości bólowe, czy wspomaga drenaż limfatyczny."));
 			methodRepo.add(new Method("Masaż klasyczny", "Powtarzalna sekwencja ruchów - praca na powierzchownych tkankach miękkich, w celu poprawy regeneracji. Niezalecany dla pacjentów bólowych."));
-
-			// Printing
-			for (Post post : postRepo.findAll()) {
-				log.info(post.toString());
-			}
 		};
 	}
 

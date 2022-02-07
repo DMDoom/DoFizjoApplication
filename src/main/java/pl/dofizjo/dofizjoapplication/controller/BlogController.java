@@ -26,23 +26,17 @@ public class BlogController {
 
     @GetMapping
     // Initial view, by default display latest post
-    public String getBlogPage(Model model) {
-        model.addAttribute("currentPost", postRepo.findLatestOne());
-
-        return "blog";
+    public String getBlogPage() {
+        return "redirect:/blog/" + postRepo.findLatestOne().getId();
     }
 
     @GetMapping("/{id}")
     public String getBlogPageByPostId(Model model, @PathVariable(value = "id") int id) {
-        List<Post> posts = postRepo.findAll();
 
-        if (posts.size() >= id && id >= 1) {
-            model.addAttribute("currentPost", postRepo.findById(id));
-        } else if (id > posts.size()) {
-            return "redirect:/blog/" + (postRepo.findLatestOne().getId());
-        } else if (id < 1) {
-            return "redirect:/blog/" + 1;
-        }
+        Post post = postRepo.findById(id);
+        model.addAttribute("currentPost", post);
+        model.addAttribute("olderPost", postRepo.findOlder(post.getCreatedAt()));
+        model.addAttribute("newerPost", postRepo.findNewer(post.getCreatedAt()));
 
         return "blog";
     }

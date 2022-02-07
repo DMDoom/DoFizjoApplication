@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
@@ -34,6 +35,28 @@ public class PostRepository {
     public List<Post> findRecent(int number) {
         return jdbc.query("SELECT * from POST ORDER BY createdAt DESC LIMIT ?",
                 new PostMapper(), number);
+    }
+
+    // Find older
+    public Post findOlder(Date date) {
+        List<Post> result = jdbc.query("SELECT * from POST where createdAt < ? ORDER BY createdAt DESC LIMIT 1", new PostMapper(), date);
+        return parseList(result);
+    }
+
+    // Find newer
+    public Post findNewer(Date date) {
+        List<Post> result = jdbc.query("SELECT * from POST where createdAt > ? ORDER BY createdAt ASC LIMIT 1", new PostMapper(), date);
+        return parseList(result);
+    }
+
+    private Post parseList(List<Post> list) {
+        if (list.isEmpty()) {
+            return null;
+        } else if (list.size() == 1) {
+            return list.get(0);
+        } else {
+            throw new IncorrectResultSizeDataAccessException(1, list.size());
+        }
     }
 
     // Find latest one
