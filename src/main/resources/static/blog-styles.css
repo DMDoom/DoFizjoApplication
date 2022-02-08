@@ -73,3 +73,25 @@ body {
     transform: scale(1.1);
     color: var(--siteMajor);
 }
+
+.office-therapy-content hr {
+    max-width: 150px;
+}
+
+.office-therapy-tile-dark {
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #f1edf2;
+    border-radius: 20px;
+}
+
+.office-therapy-tile-light {
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
