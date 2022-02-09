@@ -1,10 +1,12 @@
 package pl.dofizjo.dofizjoapplication;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.dofizjo.dofizjoapplication.data.*;
 import pl.dofizjo.dofizjoapplication.model.*;
 
@@ -20,7 +22,10 @@ public class DofizjoApplication {
 		SpringApplication.run(DofizjoApplication.class, args);
 	}
 
-	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo) {
+	@Autowired
+	PasswordEncoder encoder;
+
+	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo) {
 		return args -> {
 			// Partners
 			partnerRepo.add(new Partner(1, "/images/logos/areadance.png", "Area Dance", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
@@ -50,6 +55,8 @@ public class DofizjoApplication {
 			methodRepo.add(new Method("Korekcja wad postawy", "Terapia mająca na celu, zmniejszenie lub wyeliminowanie asymetrii w ciele."));
 			methodRepo.add(new Method("Kinesiotaping", "plastrowanie dynamiczne powoduje normalizacje napięcia mięśniowego, w zależności od rodzaju aplikacji poprawia ruchomości, zmniejsza dolegliwości bólowe, czy wspomaga drenaż limfatyczny."));
 			methodRepo.add(new Method("Masaż klasyczny", "Powtarzalna sekwencja ruchów - praca na powierzchownych tkankach miękkich, w celu poprawy regeneracji. Niezalecany dla pacjentów bólowych."));
+
+			userRepo.add(new User("test", encoder.encode("test"), true));
 		};
 	}
 
