@@ -234,25 +234,19 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "static-grid review-grid review-grid"
-      "static-grid partner-grid partner-grid"
-      "static-grid method-grid method-grid";
+      "block-grid element-grid";
   }
 
-  .static-grid { grid-area: static-grid; }
+  .static-grid { grid-area: block-grid; }
 
-  .review-grid { grid-area: review-grid; }
+  .review-grid { grid-area: element-grid; }
 
-  .partner-grid { grid-area: partner-grid; }
-
-  .method-grid { grid-area: method-grid; }
-
-  /* REVIEW PANEL */
+  /* PARTNER PANEL */
 .partner-panel {
     display: flex;
     flex-direction: row;
@@ -297,7 +291,7 @@ body {
     padding: 10px;
 }
 
-/* METHOD PANEL */
+ /* METHOD PANEL */
 .method-panel {
     display: flex;
     flex-direction: row;
@@ -306,6 +300,7 @@ body {
     align-items: flex-start;
     gap: 40px;
     padding: 50px;
+
 }
 
 .method-tile {

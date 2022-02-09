@@ -10,7 +10,7 @@
 
     <body>
         <div class="container">
-            <div class="static-grid">
+            <div class="block-grid">
                 <h1 style="margin-top: 75px;"> treść </h1>
                 <div class="edit-panel">
                     <form method="POST" th:action="@{/cms/edit/block}" th:object="${block}" th:each="blockItem : ${blocks}">
@@ -24,86 +24,89 @@
                 </div>
             </div>
 
-            <div class="review-grid">
-                <h1 style="margin-top: 75px;"> rekomendacje </h1>
-                <div class="review-panel">
-                    <form method="POST" th:action="@{/cms/edit/review}" th:object="${review}" th:each="reviewItem : ${reviews}">
-                        <div class="review-tile">
-                            <input name="author" type="text" class="input-name" th:value="${reviewItem.author}"/>
-                            <input name="discipline" type="text" class="input-discipline" th:value="${reviewItem.discipline}"/>
-                            <textarea name="opinion" type="text" class="input-opinion" th:text="${reviewItem.opinion}"></textarea>
-                            <input name="id" type="hidden" th:value="${reviewItem.id}"/>
-                            <div class="buttons">
-                                <button type="submit" class="input-button" name="action" value="update">Update</button>
-                                <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+            <div class="element-grid">
+                <div>
+                    <h1 style="margin-top: 75px;"> rekomendacje </h1>
+                    <div class="review-panel">
+                        <form method="POST" th:action="@{/cms/edit/review}" th:object="${review}" th:each="reviewItem : ${reviews}">
+                            <div class="review-tile">
+                                <input name="author" type="text" class="input-name" th:value="${reviewItem.author}"/>
+                                <input name="discipline" type="text" class="input-discipline" th:value="${reviewItem.discipline}"/>
+                                <textarea name="opinion" type="text" class="input-opinion" th:text="${reviewItem.opinion}"></textarea>
+                                <input name="id" type="hidden" th:value="${reviewItem.id}"/>
+                                <div class="buttons">
+                                    <button type="submit" class="input-button" name="action" value="update">Update</button>
+                                    <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <form method="POST" th:action="@{/cms/edit/review}" th:object="${review}">
-                        <div class="review-tile">
-                            <input name="author" type="text" class="input-name" placeholder="imię i nazwisko"/>
-                            <input name="discipline" type="text" class="input-discipline" placeholder="dyscyplina"/>
-                            <textarea name="opinion" type="text" class="input-opinion"></textarea>
-                            <div class="buttons">
-                                <button type="submit" class="input-button" name="action" value="add">Add</button>
+                        </form>
+                        <form method="POST" th:action="@{/cms/edit/review}" th:object="${review}">
+                            <div class="review-tile">
+                                <input name="author" type="text" class="input-name" placeholder="imię i nazwisko"/>
+                                <input name="discipline" type="text" class="input-discipline" placeholder="dyscyplina"/>
+                                <textarea name="opinion" type="text" class="input-opinion"></textarea>
+                                <div class="buttons">
+                                    <button type="submit" class="input-button" name="action" value="add">Add</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="partner-grid">
-                <h1> partnerzy </h1>
-                <div class="partner-panel">
-                    <form method="POST" th:action="@{/cms/edit/partner}" th:object="${partner}" th:each="partnerItem : ${partners}">
-                        <div class="partner-tile">
-                            <input name="img" type="text" class="input-org" th:value="${partnerItem.img}">
-                            <input name="name" type="text" class="input-image" th:value="${partnerItem.name}">
-                            <textarea name="description" type="text" class="input-description" th:text="${partnerItem.description}"></textarea>
-                            <input name="id" type="hidden" th:value="${partnerItem.id}">
-                            <div class="buttons">
-                                <button type="submit" class="input-button" name="action" value="update">Update</button>
-                                <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+                <div>
+                    <h1 style="margin-top: 75px;"> partnerzy </h1>
+                    <div class="partner-panel">
+                        <form method="POST" th:action="@{/cms/edit/partner}" th:object="${partner}" th:each="partnerItem : ${partners}">
+                            <div class="partner-tile">
+                                <input name="img" type="text" class="input-org" th:value="${partnerItem.img}">
+                                <input name="name" type="text" class="input-image" th:value="${partnerItem.name}">
+                                <textarea name="description" type="text" class="input-description" th:text="${partnerItem.description}"></textarea>
+                                <input name="id" type="hidden" th:value="${partnerItem.id}">
+                                <div class="buttons">
+                                    <button type="submit" class="input-button" name="action" value="update">Update</button>
+                                    <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <form method="POST" th:action="@{/cms/edit/partner}" th:object="${partner}">
-                        <div class="partner-tile">
-                            <input name="img" type="text" class="input-org" placeholder="obrazek - tylko linki!">
-                            <input name="name" type="text" class="input-image" placeholder="nazwa organizacji">
-                            <textarea name="description" type="text" class="input-description"></textarea>
-                            <div class="buttons">
-                                <button type="submit" class="input-button" name="action" value="add">Add</button>
+                        </form>
+                        <form method="POST" th:action="@{/cms/edit/partner}" th:object="${partner}">
+                            <div class="partner-tile">
+                                <input name="img" type="text" class="input-org" placeholder="obrazek - tylko linki!">
+                                <input name="name" type="text" class="input-image" placeholder="nazwa organizacji">
+                                <textarea name="description" type="text" class="input-description"></textarea>
+                                <div class="buttons">
+                                    <button type="submit" class="input-button" name="action" value="add">Add</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="method-grid">
-                <h1> metody </h1>
-                <div class="review-panel">
-                    <form method="POST" th:action="@{/cms/edit/method}" th:object="${method}" th:each="methodItem : ${methods}">
-                        <div class="review-tile">
-                            <input name="name" type="text" class="input-name" th:value="${methodItem.name}">
-                            <textarea name="description" type="text" class="input-opinion" th:text="${methodItem.description}"></textarea>
-                            <input name="id" type="hidden" class="input-discipline" th:value="${methodItem.id}">
-                            <div class="buttons">
-                                <button type="submit" class="input-button" name="action" value="update">Update</button>
-                                <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+                <div>
+                    <h1 style="margin-top: 75px;"> metody </h1>
+                    <div class="method-panel">
+                        <form method="POST" th:action="@{/cms/edit/method}" th:object="${method}" th:each="methodItem : ${methods}">
+                            <div class="method-tile">
+                                <input name="name" type="text" class="input-name" th:value="${methodItem.name}">
+                                <textarea name="description" type="text" class="input-opinion" th:text="${methodItem.description}"></textarea>
+                                <input name="id" type="hidden" class="input-discipline" th:value="${methodItem.id}">
+                                <div class="buttons">
+                                    <button type="submit" class="input-button" name="action" value="update">Update</button>
+                                    <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <form method="POST" th:action="@{/cms/edit/method}" th:object="${method}">
-                        <div class="partner-tile">
-                            <input name="name" type="text" class="input-org" placeholder="nazwa metody">
-                            <textarea name="description" type="text" class="input-description"></textarea>
-                            <div class="buttons">
-                                <button type="submit" class="input-button" name="action" value="add">Add</button>
+                        </form>
+                        <form method="POST" th:action="@{/cms/edit/method}" th:object="${method}">
+                            <div class="method-tile">
+                                <input name="name" type="text" class="input-org" placeholder="nazwa metody">
+                                <textarea name="description" type="text" class="input-description"></textarea>
+                                <div class="buttons">
+                                    <button type="submit" class="input-button" name="action" value="add">Add</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>

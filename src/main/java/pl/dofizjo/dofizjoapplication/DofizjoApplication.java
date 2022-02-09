@@ -40,7 +40,6 @@ public class DofizjoApplication {
 			reviewRepo.add(new Review(1, "Jan Kowalski", "Lorem", "In ornare imperdiet risus, at aliquet massa rutrum ac. Vestibulum mollis massa lectus, et pulvinar libero porta et."));
 
 			// Blocks
-			blockRepo.add(new Block("lokalizacja", "ul. Gdańska 28/4", "+48 731 278 308"));
 			blockRepo.add(new Block("zapraszamy", "zapraszamy", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem in erat bibendum scelerisque in in ipsum. Aliquam at interdum lorem. Donec vel odio vel lectus viverra scelerisque. Donec venenatis faucibus magna id viverra. Cras aliquet dignissim quam, vitae ultricies libero ultrices vitae. Phasellus ut fringilla purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero tortor, posuere sit amet nunc at, semper dictum purus. Etiam at purus eget nibh rutrum egestas."));
 			blockRepo.add(new Block("oferta", "oferta", "Aenean et bibendum felis, in vestibulum libero. Suspendisse nibh tortor, lobortis non odio nec, luctus rhoncus diam. Phasellus pretium, nulla nec volutpat tempor, ipsum est scelerisque augue, eget vestibulum neque velit et nunc. Ut suscipit augue ex, ac auctor orci interdum vitae. Morbi posuere lacinia enim sit amet sollicitudin."));
 			blockRepo.add(new Block("mateusz", "Mateusz", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
@@ -48,6 +47,7 @@ public class DofizjoApplication {
 			blockRepo.add(new Block("rafal", "Rafał", "In dictum, nibh sed auctor venenatis, orci ante condimentum lorem, in mattis orci nisl ac nisi. Pellentesque in eros odio. Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor."));
 			blockRepo.add(new Block("metody", "analiza i terapia", "Etiam faucibus, metus nec porta dignissim, neque leo consequat dolor, quis fermentum tellus augue id turpis. Fusce pulvinar quis sem sit amet suscipit."));
 			blockRepo.add(new Block("kontakt", "kontakt", "dofizjoterapeuty@gmail.com"));
+			blockRepo.add(new Block("lokalizacja", "ul. Gdańska 28/4", "+48 731 278 308"));
 
 			// Methods
 			methodRepo.add(new Method("Terapia skojarzona", "Terapia zawierająca w sobie wszystkie metody potrzebne do zmniejszenia lub całkowitego zniesienia bólu."));
