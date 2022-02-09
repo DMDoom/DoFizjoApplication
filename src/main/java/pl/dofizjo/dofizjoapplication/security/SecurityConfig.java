@@ -37,17 +37,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Configuring access
         http
                 .authorizeRequests()
-                    .antMatchers( "/cms", "/cms/edit", "cms/blog") // Needs to be specifically mentioned to disallow /orders/current to disallow it...
+                    .antMatchers( "/cms", "/cms/edit", "cms/blog")
                         .access("hasRole('ROLE_ADMIN')")
                     .antMatchers("/", "/h2-console/**")
                         .access("permitAll")
-                    .and() // specifying login page (if we want to change the default login bland page)
+                    .and()
                         .formLogin()
                         .loginPage("/login")
                     .and()
                         .logout()
-                        .logoutSuccessUrl("/"); // redirecting on logout
+                        .logoutSuccessUrl("/");
 
+        // Do NOT use in production
         http.csrf().disable();
         http.headers().frameOptions().disable();
     }

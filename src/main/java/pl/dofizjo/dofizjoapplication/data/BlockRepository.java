@@ -1,16 +1,10 @@
 package pl.dofizjo.dofizjoapplication.data;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import pl.dofizjo.dofizjoapplication.data.mapper.BlockMapper;
 import pl.dofizjo.dofizjoapplication.model.Block;
 
-import java.sql.Types;
-import java.util.Arrays;
 import java.util.List;
 
 @Repository

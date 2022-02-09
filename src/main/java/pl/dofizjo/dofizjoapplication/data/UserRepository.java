@@ -3,7 +3,6 @@ package pl.dofizjo.dofizjoapplication.data;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.dofizjo.dofizjoapplication.data.mapper.UserMapper;
-import pl.dofizjo.dofizjoapplication.model.Partner;
 import pl.dofizjo.dofizjoapplication.model.User;
 
 @Repository
