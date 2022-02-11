@@ -1,14 +1,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
+        <meta name="title" content="DoFizjo – fizjoterapia w Bydgoszczy, blog z pasją dla fizjoterapii">
+        <meta name="description" content="Zespół oferujący usługi fizjoterapeutyczne w Bydgoszczy. Leczenie urazów, schorzeń dla sportowców, osób aktywnych fizycznie oraz pracowników biurowych">
+        <meta name="keywords" content="bydgoszcz, fizjoterapia, fizjoterapeuta, dofizjo, kujawsko-pomorskie, masaż, kinozyterapia, anatomy trains, metoda pnf, pinoterapia, kinesiology taping, masaż bańką chińską, suche igłowanie, kinezyterapia, terapia skojarzona, terapia powięziowa, korekcja wad postawy, kinesiotaping, masaż klasyczny, terapia bańkami chińskimi, wizyty domowe, mma, muay thai, k1, kalistenika, trójbój, sport, zawody, przygotowanie ">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="Polish">
+
+        <title>Blog</title>
         <link rel="stylesheet" th:href="@{/styles.css}">
         <link rel="stylesheet" th:href="@{/blog-styles.css}">
+        <link rel="icon" th:href="@{/images/dofizjoicon.ico}">
 
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
     </head>
+
     <body onload="document.body.style.opacity='1'">
+
     <!-- HEADER -->
     <div class="header">
         <div class="flex-header">
@@ -20,42 +31,43 @@
                 <a th:href="@{/}">o nas</a>
                 <a th:href="@{/office}">dla firm</a>
                 <a th:href="@{/blog}">blog</a>
-                <a href="#kontakt">kontakt</a>
-                <a href="#rekomendacje">rekomendacje</a>
-                <a href="#partnerzy">partnerzy</a>
-                <img th:src="@{images/logo.png}" width="85" height="85">
+                <a th:href="@{/}">kontakt</a>
+                <a th:href="@{/}">rekomendacje</a>
+                <a th:href="@{/}">partnerzy</a>
+                <img th:src="@{/images/logo.png}" width="85" height="85">
             </div>
         </div>
         <div class="separator"></div>
     </div>
 
-        <!-- WRAPPER -->
-        <div class="wrapper">
-            <div class="blog-space">
-                <div class="blog-post">
-                    <h1 th:text="${currentPost.title}"> Title </h1>
-                    <div>
-                        <hr>
-                    </div>
-                    <h3 th:text="${currentPost.author} + ', ' + ${currentPost.createdAt}"> Author, date </h3>
-                    <p th:text="${currentPost.content}"> Content </p>
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <div class="blog-space">
+            <div class="blog-post">
+                <h1 th:text="${currentPost.title}"> Title </h1>
+                <div>
+                    <hr>
                 </div>
-                <div class="blog-navigation">
-                    <span th:if="${olderPost != null}">
-                        <a th:href="@{'/blog/' + ${olderPost.id}}">
-                            <span><< Starszy post</span>
-                        </a>
-                    </span>
-                    <span th:if="${newerPost != null}">
-                        <a th:href="@{'/blog/' + ${newerPost.id}}"> <!-- Property or field 'id' cannot be found on null -->
-                            <span>Nowszy post >></span>
-                        </a>
-                    </span>
-                </div>
+                <h3 th:text="${currentPost.author} + ', ' + ${currentPost.createdAt}"> Author, date </h3>
+                <p th:text="${currentPost.content}"> Content </p>
+            </div>
+            <div class="blog-navigation">
+                <span th:if="${olderPost != null}">
+                    <a th:href="@{/blog/{id}(id=${olderPost.id})}">
+                        <span><< Starszy post</span>
+                    </a>
+                </span>
+                <span th:if="${newerPost != null}">
+                    <a th:href="@{/blog/{id}(id=${newerPost.id})}">
+                        <span>Nowszy post >></span>
+                    </a>
+                </span>
             </div>
         </div>
-        <div class="footer">
-            <img th:src="@{images/footer.png}">
-        </div>
+    </div>
+    <div class="footer">
+        <img th:src="@{/images/footer.png}">
+    </div>
+
     </body>
 </html>
