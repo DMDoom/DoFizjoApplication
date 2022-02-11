@@ -12,29 +12,25 @@
     <body>
         <h1 style="margin-top: 75px;"> panel sterowania </h1>
         <div class="tiles-panel">
-            <div class="tile">
+            <a class="tile" th:href="@{/cms/edit}">
                 <img th:src="@{images/miniatures/browser.png}">
                 <p> Edytuj treść </p>
-            </div>
-            <div class="tile">
+            </a>
+            <a class="tile" th:href="@{/cms/blog}">
                 <img th:src="@{images/miniatures/newspaper.png}">
                 <p> Edytuj blog </p>
-            </div>
-            <div class="tile">
+            </a>
+            <div class="tile" style="background-color: #C0C0C0;">
                 <img th:src="@{images/miniatures/bar-chart.png}">
                 <p> Statystyka </p>
             </div>
-            <div class="tile">
+            <div class="tile" style="background-color: #C0C0C0;">
                 <img th:src="@{images/miniatures/calendar.png}">
                 <p> Kaldendarz </p>
             </div>
-            <div class="tile">
+            <div class="tile" style="background-color: #C0C0C0;">
                 <img th:src="@{images/miniatures/email.png}">
                 <p> Mail </p>
-            </div>
-            <div class="tile">
-                <img th:src="@{images/miniatures/download.png}">
-                <p> Kopia zapasowa bazy danych </p>
             </div>
         </div>
     </body>

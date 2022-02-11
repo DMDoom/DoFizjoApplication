@@ -34,7 +34,6 @@ public class HomeController {
     @ModelAttribute
     public void loadData(Model model) {
         // Blocks
-        model.addAttribute("lokalizacja", blockRepo.findById("lokalizacja"));
         model.addAttribute("zapraszamy", blockRepo.findById("zapraszamy"));
         model.addAttribute("metody", blockRepo.findById("metody"));
         model.addAttribute("mateusz", blockRepo.findById("mateusz"));
@@ -42,6 +41,7 @@ public class HomeController {
         model.addAttribute("rafal", blockRepo.findById("rafal"));
         model.addAttribute("oferta", blockRepo.findById("oferta"));
         model.addAttribute("kontakt", blockRepo.findById("kontakt"));
+        model.addAttribute("lokalizacja", blockRepo.findById("lokalizacja"));
 
         // Partners
         model.addAttribute("partners", partnerRepo.findAll());
@@ -51,8 +51,8 @@ public class HomeController {
 
         // Methods
         List<Method> methods = methodRepo.findAll();
-        model.addAttribute("methodsLeft", new ArrayList<>(methods.subList(0, 2)));
-        model.addAttribute("methodsRight", new ArrayList<>(methods.subList(2, methods.size())));
+        model.addAttribute("methodsLeft", new ArrayList<>(methods.subList(0, 3)));
+        model.addAttribute("methodsRight", new ArrayList<>(methods.subList(3, methods.size())));
     }
 
     @GetMapping

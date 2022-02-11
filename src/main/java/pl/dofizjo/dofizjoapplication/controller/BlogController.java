@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.dofizjo.dofizjoapplication.data.BlockRepository;
 import pl.dofizjo.dofizjoapplication.data.PostRepository;
 import pl.dofizjo.dofizjoapplication.model.Post;
 
@@ -18,10 +19,12 @@ import java.util.List;
 public class BlogController {
 
     private PostRepository postRepo;
+    private BlockRepository blockRepo;
 
     @Autowired
-    public BlogController(PostRepository postRepo) {
+    public BlogController(PostRepository postRepo, BlockRepository blockRepo) {
         this.postRepo = postRepo;
+        this.blockRepo = blockRepo;
     }
 
     @GetMapping
@@ -32,7 +35,11 @@ public class BlogController {
 
     @GetMapping("/{id}")
     public String getBlogPageByPostId(Model model, @PathVariable(value = "id") int id) {
+        // Blocks
+        model.addAttribute("kontakt", blockRepo.findById("kontakt"));
+        model.addAttribute("lokalizacja", blockRepo.findById("lokalizacja"));
 
+        // Post
         Post post = postRepo.findById(id);
         model.addAttribute("currentPost", post);
         model.addAttribute("olderPost", postRepo.findOlder(post.getCreatedAt()));

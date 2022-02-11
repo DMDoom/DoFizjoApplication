@@ -18,14 +18,15 @@
     <div class="flex-header">
         <div class="quick-contact-flex">
             <a href="#link" id="quick-contact-address" th:text="${lokalizacja.title}"> address </a>
-            <a href="#link" id="quick-contact-phone" th:text="${lokalizacja.content}"> phone </a>
+            <a href="#link" id="quick-contact-phone" th:text="${kontakt.title}"> phone </a>
         </div>
         <div class="navigation-link-flex">
-            <a href="#link">o nas</a>
-            <a href="#link">oferta</a>
-            <a href="#link">rekomendacje</a>
-            <a href="#link">kontakt</a>
-            <a href="#link">blog</a>
+            <a th:href="@{/}">o nas</a>
+            <a th:href="@{/office}">dla firm</a>
+            <a th:href="@{/blog}">blog</a>
+            <a href="#kontakt">kontakt</a>
+            <a href="#rekomendacje">rekomendacje</a>
+            <a href="#partnerzy">partnerzy</a>
             <img th:src="@{images/logo.png}" width="85" height="85">
         </div>
     </div>
@@ -130,7 +131,7 @@
                 </div>
             </div>
             <div class="location revealrowleft">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2394.002984361799!2d18.00399471601552!3d53.12809199873738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470313bf459266a9%3A0x6d04f2adcb4f0bdf!2sGda%C5%84ska%2028%2C%2085-006%20Bydgoszcz!5e0!3m2!1sen!2spl!4v1640196692473!5m2!1sen!2spl" width="600" height="450" style="border:0; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 100px;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4788.753827999172!2d18.02944920436805!3d53.121379257186504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4703138c52726613%3A0xfc7a547f51080e34!2sJagiello%C5%84ska%20109%2C%2085-095%20Bydgoszcz!5e0!3m2!1sen!2spl!4v1644510601076!5m2!1sen!2spl" width="600" height="450" style="border:0; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 100px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -155,18 +156,19 @@
                     <p th:text="${method.description}"> opis </p>
                 </div>
             </div>
-            <div class="contact">
+            <div class="contact" id="kontakt">
                 <h1 class="revealrowright">kontakt</h1>
                 <h2 class="revealrowright" th:text="${kontakt.content}"> email </h2>
-                <h2 class="revealrowright" id="phone" th:text="${lokalizacja.content}"> phone </h2>
+                <h2 class="revealrowright" id="phone" th:text="${kontakt.title}"> phone </h2>
                 <h2 class="revealrowright" th:text="${lokalizacja.title}"> address </h2>
+                <h2 class="revealrowright" th:text="${lokalizacja.content}"> address2 </h2>
                 <img th:src="@{images/logo.png}" class="revealrowright">
             </div>
         </div>
     </div>
 
-    <!-- SEPARATOR -->
-    <div class="partners-separator revealcol">
+    <!-- SEPARATOR -->s
+    <div class="partners-separator revealcol" id="partnerzy">
         <div class="block-separator">
             <h1>partnerzy</h1>
         </div>
@@ -190,7 +192,7 @@
     </div>
 
     <!-- RECOMMENDATIONS AND IG FEED -->
-    <div class="recommendations revealcol">
+    <div class="recommendations revealcol" id="rekomendacje">
         <h1>rekomendacje</h1>
 
         <div class=recommendations-table>

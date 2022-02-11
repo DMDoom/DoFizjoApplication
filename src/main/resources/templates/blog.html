@@ -9,22 +9,25 @@
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body onload="document.body.style.opacity='1'">
-        <!-- HEADER -->
-        <div class="header">
-            <div class="flex-header">
-                <div class="quick-contact-flex">
-                    <a href="#link" id="quick-contact-address">ul. Gdańska 28/4</a>
-                    <a href="#link" id="quick-contact-phone">+48 731 278 308</a>
-                </div>
-                <a href="#link">o nas</a>
-                <a href="#link">oferta</a>
-                <a href="#link">rekomendacje</a>
-                <a href="#link">kontakt</a>
-                <a href="#link">blog</a>
-                <img src="resources/logo.png" width="85" height="85">
+    <!-- HEADER -->
+    <div class="header">
+        <div class="flex-header">
+            <div class="quick-contact-flex">
+                <a href="#link" id="quick-contact-address" th:text="${lokalizacja.title}"> address </a>
+                <a href="#link" id="quick-contact-phone" th:text="${kontakt.title}"> phone </a>
             </div>
-            <div class="separator"></div>
+            <div class="navigation-link-flex">
+                <a th:href="@{/}">o nas</a>
+                <a th:href="@{/office}">dla firm</a>
+                <a th:href="@{/blog}">blog</a>
+                <a href="#kontakt">kontakt</a>
+                <a href="#rekomendacje">rekomendacje</a>
+                <a href="#partnerzy">partnerzy</a>
+                <img th:src="@{images/logo.png}" width="85" height="85">
+            </div>
         </div>
+        <div class="separator"></div>
+    </div>
 
         <!-- WRAPPER -->
         <div class="wrapper">
@@ -52,7 +55,7 @@
             </div>
         </div>
         <div class="footer">
-            <img src="resources/footer.png">
+            <img th:src="@{images/footer.png}">
         </div>
     </body>
 </html>
