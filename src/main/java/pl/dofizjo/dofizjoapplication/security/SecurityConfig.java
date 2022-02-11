@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,9 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Configuring access
         http
                 .authorizeRequests()
-                    .antMatchers( "/cms", "/cms/edit", "cms/blog")
+                    .antMatchers( "/cms", "/cms/edit", "/cms/blog", "/register")
                         .access("hasRole('ROLE_ADMIN')")
-                    .antMatchers("/", "/h2-console/**")
+                    .antMatchers("/", "/blog", "/office")
                         .access("permitAll")
                     .and()
                         .formLogin()
@@ -49,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .logoutSuccessUrl("/");
 
         // Do NOT use in production
-        http.csrf().disable();
-        http.headers().frameOptions().disable();
+        //http.csrf().disable();
+        //http.headers().frameOptions().disable();
     }
 }

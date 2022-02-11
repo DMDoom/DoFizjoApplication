@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  ssl:
+    enabled: true
+    key-store: classpath:keystore/keys.jks
+    key-store-password: t3stp4ss
+    key-password: t3stp4ss
+    key-alias: dofizjo
+#spring:
+  #datasource:
+  #url: jdbc:mysql://localhost/tacocloud
+  #username: tacodb
+  #password: tacopassword

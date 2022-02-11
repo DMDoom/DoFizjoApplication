@@ -28,8 +28,6 @@ public class DofizjoApplication {
 	// TODO:
 	// DataSource with MySQL, MySQL driver dependency maybe
 	// Environment variable user creation
-	// Beautify officetherapy with pics maybe
-	// Configure key for HTTPS
 
 	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo) {
 		return args -> {

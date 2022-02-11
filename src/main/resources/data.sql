@@ -1,5 +1,9 @@
 insert into Post (id, author, title, content, createdAt)
     values ('1', 'Mateusz', 'Lorem ipsum', 'Curabitur risus felis', '2017-07-23');
+insert into Post (id, author, title, content, createdAt)
+    values ('2', 'Mateusz', 'Lorem ipsum', 'Curabitur risus felis', '2018-07-24');
+insert into Post (id, author, title, content, createdAt)
+    values ('3', 'Mateusz', 'Lorem ipsum', 'Curabitur risus felis', '2019-07-24');
 
 insert into Review (id, author, discipline, opinion)
     values ('1', 'Kuba Tymiński', 'Kadra narodowa Muay Thai, K1', 'Wielkie dzięki Panowie za robotę jaką wykonujecie. Teraz mogę trenować na 100% i nie martwić się o nawracające kontuzje. Od czasu, kiedy zaczęliśmy współpracować bóle nóg i pleców, które towarzyszyły mi parę lat minęły. Naprawdę nie pamiętam kiedy ostatnio byłem tak spokojny o swój organizm. Jeszcze raz dziękuję!');

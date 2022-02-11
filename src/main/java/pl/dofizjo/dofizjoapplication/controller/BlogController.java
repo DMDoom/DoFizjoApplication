@@ -21,15 +21,13 @@ public class BlogController {
     private PostRepository postRepo;
     private BlockRepository blockRepo;
 
-    @Autowired
     public BlogController(PostRepository postRepo, BlockRepository blockRepo) {
         this.postRepo = postRepo;
         this.blockRepo = blockRepo;
     }
 
     @GetMapping
-    // Initial view, by default display latest post
-    public String getBlogPage() {
+    public String getBlogPage(Model model) {
         return "redirect:/blog/" + postRepo.findLatestOne().getId();
     }
 
