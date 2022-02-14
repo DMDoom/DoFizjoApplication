@@ -49,6 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .logout()
                         .logoutSuccessUrl("/");
 
+        /* Redirect to Heroku's HTTPS*/
+        http.requiresChannel()
+                .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+                .requiresSecure();
+
         // Do NOT use in production
         //http.csrf().disable();
         //http.headers().frameOptions().disable();

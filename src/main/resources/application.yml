@@ -1,7 +1,7 @@
 server:
   port: 8080
   ssl:
-    enabled: true
+    enabled: false
     key-store: classpath:keystore/keys.jks
     key-store-password: t3stp4ss
     key-password: t3stp4ss

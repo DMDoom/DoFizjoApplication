@@ -49,7 +49,7 @@
                     <hr>
                 </div>
                 <h3 th:text="${currentPost.author} + ', ' + ${currentPost.createdAt}"> Author, date </h3>
-                <p th:text="${currentPost.content}"> Content </p>
+                <p th:utext="${currentPost.content}"> Content </p>
             </div>
             <div class="blog-navigation">
                 <span th:if="${olderPost != null}">

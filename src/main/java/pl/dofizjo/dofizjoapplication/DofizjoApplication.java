@@ -27,7 +27,6 @@ public class DofizjoApplication {
 
 	// TODO:
 	// DataSource with MySQL, MySQL driver dependency maybe
-	// Environment variable user creation
 
 	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo) {
 		return args -> {
