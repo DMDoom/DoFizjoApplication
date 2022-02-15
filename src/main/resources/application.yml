@@ -6,6 +6,19 @@ server:
     key-store-password: t3stp4ss
     key-password: t3stp4ss
     key-alias: dofizjo
+
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+
+# for testing postgresql mode
+#spring:
+  #datasource:
+    #driverClassName: org.h2.Driver
+    #url: jdbc:h2:mem:mydb;MODE=PostgreSQL
+    #schema: classpath:/schema.sql
 #spring:
   #datasource:
   #url: jdbc:mysql://localhost/tacocloud
