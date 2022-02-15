@@ -8,6 +8,9 @@ server:
     key-alias: dofizjo
 
 spring:
+  sql:
+    init:
+      mode: always
   datasource:
     url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
