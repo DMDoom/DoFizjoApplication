@@ -33,7 +33,7 @@ create table if not exists Method (
 );
 
 create table users (
-	username varchar(500) not null primary key,
+	username varchar(50) not null primary key,
 	password varchar(500) not null,
 	enabled boolean not null
 );
