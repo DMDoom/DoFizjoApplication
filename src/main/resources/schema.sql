@@ -1,5 +1,5 @@
 create table if not exists Post (
-    id identity,
+    id int identity,
     author varchar(50) not null,
     title varchar(50) not null,
     content varchar(5000) not null,
@@ -13,21 +13,21 @@ create table if not exists Block (
 );
 
 create table if not exists Partner (
-    id identity,
+    id int identity,
     img varchar(50) not null,
     name varchar(50) not null,
     description varchar(1000) not null
 );
 
 create table if not exists Review (
-    id identity,
+    id int identity,
     author varchar(50) not null,
     discipline varchar(50) not null,
     opinion varchar(1000) not null
 );
 
 create table if not exists Method (
-    id identity,
+    id int identity,
     name varchar(100) not null,
     description varchar(500) not null
 );
