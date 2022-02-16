@@ -246,10 +246,6 @@ p {
     margin-top: 0px;
 }
 
-.mateusz p {
-    text-align: right;
-}
-
 .methods {
     display: flex;
     flex-direction: column;
@@ -369,7 +365,6 @@ p {
 }
 
 .contact h2 {
-    font-size: 40px;
     margin-bottom: 20px;
 }
 
@@ -457,10 +452,14 @@ p {
 
 .karol p {
     font-size: 20px;
+    text-align: justify;
 }
 
 .mateusz p {
     font-size: 20px;
+    text-align: justify;
+    max-width: 500px;
+    align-self: flex-end;
 }
 
 .instagram-posts {
@@ -495,7 +494,7 @@ p {
 
 /* TABLE */
 table {
-    width: 1000px;
+    width: 1200px;
     border: none;
     border-top: 1px solid #EEEEEE;
     font-family: var(--fontMinor);
@@ -599,6 +598,36 @@ tr:hover {
 .revealrowleft.active {
     transform: translateX(0px);
     opacity: 1;
+}
+
+.mateusz a {
+    font-family: var(--fontMinor);
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    text-decoration: none;
+    transition: all .2s ease-in-out
+    text-align: right;
+    text-align: end;
+    align-self: flex-end;
+}
+
+.mateusz a:hover {
+    color: var(--siteMajor);
+}
+
+.karol a {
+    font-family: var(--fontMinor);
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    text-decoration: none;
+    transition: all .2s ease-in-out
+    justify-self: flex-end;
+}
+
+.karol a:hover {
+    color: var(--siteMajor);
 }
 
 @media only screen and (max-width: 1600px)

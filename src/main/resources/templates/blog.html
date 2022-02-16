@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
     </head>
 
-    <body onload="document.body.style.opacity='1'">
+    <body style="opacity:1;">
 
     <!-- HEADER -->
     <div class="header">
@@ -28,10 +28,10 @@
                 <a href="#link" id="quick-contact-phone" th:text="${kontakt.title}"> phone </a>
             </div>
             <div class="navigation-link-flex">
-                <a th:href="@{/}">o nas</a>
+                <a th:href="@{/}">zapraszamy</a>
                 <a th:href="@{/office}">dla firm</a>
+                <a th:href="@{/wiecej}">o nas</a>
                 <a th:href="@{/blog}">blog</a>
-                <a th:href="@{/}">kontakt</a>
                 <a th:href="@{/}">rekomendacje</a>
                 <a th:href="@{/}">partnerzy</a>
                 <img th:src="@{/images/logo.png}" width="85" height="85">
@@ -54,12 +54,12 @@
             <div class="blog-navigation">
                 <span th:if="${olderPost != null}">
                     <a th:href="@{/blog/{id}(id=${olderPost.id})}">
-                        <span><< Starszy post</span>
+                        <span>&larr; Starszy post</span>
                     </a>
                 </span>
                 <span th:if="${newerPost != null}">
                     <a th:href="@{/blog/{id}(id=${newerPost.id})}">
-                        <span>Nowszy post >></span>
+                        <span>Nowszy post &rarr;</span>
                     </a>
                 </span>
             </div>

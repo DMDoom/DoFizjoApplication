@@ -36,9 +36,9 @@ public class HomeController {
         // Blocks
         model.addAttribute("zapraszamy", blockRepo.findById("zapraszamy"));
         model.addAttribute("metody", blockRepo.findById("metody"));
-        model.addAttribute("mateusz", blockRepo.findById("mateusz"));
-        model.addAttribute("karol", blockRepo.findById("karol"));
-        model.addAttribute("rafal", blockRepo.findById("rafal"));
+        model.addAttribute("mateusz", blockRepo.findById("mateuszS"));
+        model.addAttribute("karol", blockRepo.findById("karolS"));
+        model.addAttribute("rafal", blockRepo.findById("rafalS"));
         model.addAttribute("oferta", blockRepo.findById("oferta"));
         model.addAttribute("kontakt", blockRepo.findById("kontakt"));
         model.addAttribute("lokalizacja", blockRepo.findById("lokalizacja"));

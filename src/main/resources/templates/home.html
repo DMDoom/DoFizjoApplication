@@ -28,10 +28,10 @@
             <a href="#link" id="quick-contact-phone" th:text="${kontakt.title}"> phone </a>
         </div>
         <div class="navigation-link-flex">
-            <a th:href="@{/}">o nas</a>
+            <a th:href="@{/}">zapraszamy</a>
             <a th:href="@{/office}">dla firm</a>
+            <a th:href="@{/wiecej}">o nas</a>
             <a th:href="@{/blog}">blog</a>
-            <a href="#kontakt">kontakt</a>
             <a href="#rekomendacje">rekomendacje</a>
             <a href="#partnerzy">partnerzy</a>
             <img th:src="@{images/logo.png}" width="85" height="85">
@@ -60,16 +60,16 @@
 
                     <!--slide images start-->
                     <div class="slide first">
-                        <img th:src="@{images/1slide.jpg}" alt="">
+                        <img th:src="@{/images/1slide.jpg}" alt="">
                     </div>
                     <div class="slide">
-                        <img th:src="@{images/2slide.jpg}" alt="">
+                        <img th:src="@{/images/slide2.jpeg}" alt="">
                     </div>
                     <div class="slide">
-                        <img th:src="@{images/3slide.jpg}" alt="">
+                        <img th:src="@{/images/slide3.jpeg}" alt="">
                     </div>
                     <div class="slide">
-                        <img th:src="@{images/4slide.jpg}" alt="">
+                        <img th:src="@{/images/4slide.jpeg}" alt="">
                     </div>
 
                     <!--automatic navigation start-->
@@ -120,10 +120,11 @@
                 <h1 class="revealrowleft"> o nas </h1>
                 <img th:src="@{images/socials.png}" class="revealrowleft">
             </div>
-            <div class="mateusz">
-                <img th:src="@{images/mateusz.jpg}" class="revealrowleft">
-                <h2 class="revealrowleft" th:text="${mateusz.title}"> mateusz </h2>
-                <p class="revealrowleft" th:text="${mateusz.content}"> opis </p>
+            <div class="mateusz revealrowleft">
+                <img th:src="@{images/mateusz.jpg}">
+                <h2 th:text="${mateusz.title}"> mateusz </h2>
+                <p th:text="${mateusz.content}"> opis </p>
+                <a th:href="@{/wiecej}">więcej</a>
             </div>
             <div class="methods">
                 <h1 class="revealrowleft"> oferta </h1>
@@ -138,7 +139,7 @@
                 </div>
             </div>
             <div class="location revealrowleft">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4788.753827999172!2d18.02944920436805!3d53.121379257186504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4703138c52726613%3A0xfc7a547f51080e34!2sJagiello%C5%84ska%20109%2C%2085-095%20Bydgoszcz!5e0!3m2!1sen!2spl!4v1644510601076!5m2!1sen!2spl" width="600" height="450" style="border:0; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 100px;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7061.742075297192!2d18.02689765503639!3d53.125476562325126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470313f2ca70bfd7%3A0x27ffde1a8203d4f9!2sMarii%20Sk%C5%82odowskiej%20Curie%2026%2C%2085-094%20Bydgoszcz!5e0!3m2!1spl!2spl!4v1645003229670!5m2!1spl!2spl" width="600" height="450" style="border:0; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 100px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -147,15 +148,17 @@
         </div>
 
         <div class="grid-right">
-            <div class="karol">
-                <img th:src="@{images/karol.jpg}" class="revealrowright">
-                <h2 class="revealrowright" th:text="${karol.title}"> karol </h2>
-                <p class="revealrowright" th:text="${karol.content}"> opis </p>
+            <div class="karol revealrowright">
+                <img th:src="@{images/karol.jpg}">
+                <h2 th:text="${karol.title}"> karol </h2>
+                <p th:text="${karol.content}"> opis </p>
+                <a th:href="@{/wiecej}">więcej</a>
             </div>
-            <div class="karol">
-                <img th:src="@{images/rafal.jpg}" class="revealrowright">
-                <h2 class="revealrowright" th:text="${rafal.title}"> rafal </h2>
-                <p class="revealrowright" th:text="${rafal.content}"> opis </p>
+            <div class="karol revealrowright">
+                <img th:src="@{images/rafal.jpg}">
+                <h2 th:text="${rafal.title}"> rafal </h2>
+                <p th:text="${rafal.content}"> opis </p>
+                <a th:href="@{/wiecej}">więcej</a>
             </div>
             <div class="therapy-right">
                 <div class="right-therapy-block revealrowright" th:each="method : ${methodsRight}">
@@ -174,7 +177,7 @@
         </div>
     </div>
 
-    <!-- SEPARATOR -->s
+    <!-- SEPARATOR -->
     <div class="partners-separator revealcol" id="partnerzy">
         <div class="block-separator">
             <h1>partnerzy</h1>
@@ -205,12 +208,12 @@
         <div class=recommendations-table>
             <table>
                 <tr>
-                    <th>Imie</th>
+                    <th>Imię</th>
                     <th>Dyscyplina</th>
                 </tr>
                 <tr onClick='toggleRow(this)' th:each="review : ${reviews}">
                     <td th:text="${review.author}">Author</td>
-                    <td th:text="${review.discipline}">MMA</td>
+                    <td th:text="'&darr;&nbsp;&nbsp;' + ${review.discipline}">MMA</td>
                     <td class='expanded-row-content hide-row' th:text="${review.opinion}">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                         galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also

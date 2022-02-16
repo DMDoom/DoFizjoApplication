@@ -1,3 +1,11 @@
+drop table if exists Post;
+drop table if exists Block;
+drop table if exists Partner;
+drop table if exists Review;
+drop table if exists Method;
+drop table if exists users;
+drop table if exists authorities;
+
 create table if not exists Post (
     id serial primary key,
     author varchar(50) not null,

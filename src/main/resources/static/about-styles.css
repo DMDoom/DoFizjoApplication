@@ -1,0 +1,32 @@
+/* GLOBAL */
+:root {
+    --siteMajor: #3c97cd;
+    --siteMinor: #50b143;
+    --siteBar: #22272c;
+
+    --fontMajor: 'Barlow', sans-serif, bold;
+    --fontMinor: 'Barlow', sans-serif;
+}
+
+.about-tile {
+    display: flex;
+    flex-direction: row;
+    min-height: 500px;
+    min-width: 1000px;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.tile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-tile img {
+    max-height: 600px;
+}
+
+.tile-info p {
+    text-align: justify;
+}

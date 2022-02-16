@@ -61,7 +61,7 @@ public class PostRepository {
 
     // Find latest one
     public Post findLatestOne() {
-        return jdbc.queryForObject("SELECT TOP 1 * FROM POST ORDER BY createdAt DESC", new PostMapper());
+        return jdbc.queryForObject("SELECT * FROM POST ORDER BY createdAt DESC LIMIT 1", new PostMapper());
     }
 
     // Find all
