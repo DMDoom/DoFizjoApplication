@@ -52,3 +52,14 @@ create table authorities (
 	constraint fk_authorities_users foreign key(username) references users(username)
 );
 create unique index ix_auth_username on authorities (username,authority);
+
+create table if not exists Comment (
+    id serial primary key,
+    content varchar(500),
+    foreign key(postid) references Post(id)
+);
+
+create table if not exists Post_Comments (
+    foreign key(postid) references Post(id),
+    foreign key(commentid) references Comment(id)
+);
