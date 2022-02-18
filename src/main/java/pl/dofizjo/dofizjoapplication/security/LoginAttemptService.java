@@ -15,7 +15,7 @@ public class LoginAttemptService {
     private LoadingCache<String, Integer> attemptsCache;
 
     public LoginAttemptService() {
-        super(); // ???
+        super();
         attemptsCache = CacheBuilder.newBuilder().expireAfterWrite(12, TimeUnit.HOURS)
                 .build(new CacheLoader<String, Integer>() {
                     @Override

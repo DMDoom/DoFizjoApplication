@@ -2,16 +2,10 @@ package pl.dofizjo.dofizjoapplication.data;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import pl.dofizjo.dofizjoapplication.data.mapper.PostMapper;
 import pl.dofizjo.dofizjoapplication.model.Post;
 
-import java.sql.Timestamp;
-import java.sql.Types;
 import java.util.*;
 
 @Repository
@@ -81,30 +75,6 @@ public class PostRepository {
                 post.getTitle(),
                 post.getContent(),
                 post.getCreatedAt());
-
-        // Statement
-        // This is actually not necessary as JdbcTemplate does this under the hood by itself
-        // This is only necessary if we want to obtain the ID of the generated entry back and use it elsewhere
-        // as KeyHolder requires PreparedStatement
-        /*
-        PreparedStatementCreatorFactory pscFactory = new PreparedStatementCreatorFactory(
-              "INSERT into POST (author, title, content, createdAt) values (?, ?, ?, ?)",
-                Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP);
-        pscFactory.setReturnGeneratedKeys(true);
-        PreparedStatementCreator psc = pscFactory.newPreparedStatementCreator(
-                Arrays.asList(
-                        post.getAuthor(),
-                        post.getTitle(),
-                        post.getContent(),
-                        new Timestamp(post.getCreatedAt().getTime())));
-
-        // Generating ID
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-
-        // Save to database and return ID
-        jdbc.update(psc, keyHolder);
-        return keyHolder.getKey().intValue();
-        */
     }
 
     // Add all

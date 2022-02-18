@@ -28,9 +28,15 @@ public class DofizjoApplication {
 	// TODO:
 	// DataSource with MySQL, MySQL driver dependency maybe
 
-	@Bean CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo) {
+	@Bean
+	CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo, CommentRepository commentRepo) {
 		return args -> {
 			userRepo.add(new User("test", encoder.encode("test"), true));
+
+			// Comment test
+			Comment comment = new Comment(3, "Developer", "Lorem ipsum", new Date());
+			commentRepo.add(comment);
+
 		};
 	}
 }

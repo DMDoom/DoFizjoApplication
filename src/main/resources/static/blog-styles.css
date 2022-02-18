@@ -74,24 +74,75 @@ body {
     color: var(--siteMajor);
 }
 
-.office-therapy-content hr {
-    max-width: 150px;
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.office-therapy-tile-dark {
-    margin-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+.comment-tile h2 {
+    font-size: 25px;
+    text-align: left;
+}
+
+.comment-tile h3 {
+    text-align: left;
+}
+
+.comment-tile {
     background-color: #f1edf2;
-    border-radius: 20px;
+    padding: 20px;
 }
 
-.office-therapy-tile-light {
-    margin-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+.comment-tile p {
+    font-size: 20px;
+}
+
+.add-comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.add-comment input {
+    width: 500px;
+    height: 40px;
+    font-family: var(--fontMajor);
+    font-size: 20px;
+}
+
+.add-comment textarea {
+    width: 500px;
+    height: 200px;
+    font-family: var(--fontMajor);
+    font-size: 20px;
+}
+
+.input-button {
+    background-color: var(--siteMajor);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    max-width: 200px;
+}
+
+.input-button:hover {
+    transform: scale(1.1);
+}
+
+.blog-separator hr {
+    height: 5px;
+    background-color: #3c97cd;
+    border-width: 0px;
+    border-radius: 5px;
+    max-width: 1000px;
 }

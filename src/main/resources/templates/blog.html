@@ -63,6 +63,27 @@
                     </a>
                 </span>
             </div>
+
+            <div class="blog-separator">
+                <hr>
+            </div>
+
+            <h1 style="margin-bottom: 20px;">Komentarze:</h1>
+            <div class="comments-section">
+                <div class="comment-tile" th:each="commentItem : ${comments}">
+                    <h2 th:text="${commentItem.author}">Author</h2>
+                    <h3 th:text="${commentItem.createdAt}">Date</h3>
+                    <p th:text="${commentItem.content}">Content</p>
+                </div>
+            </div>
+            <div>
+                <form class="add-comment" method="POST" th:action="@{/blog}" th:object="${comment}">
+                    <input name="author" placeholder="Imię" type="text" class="input-title"/>
+                    <textarea name="content" placeholder="Dodaj komentarz" type="text" class="input-content"></textarea>
+                    <input name="postId" th:value="${currentPost.id}" type="hidden"/>
+                    <button class="input-button" type="submit">Wstaw komentarz</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="footer">
