@@ -52,6 +52,9 @@ public class BlogController {
         model.addAttribute("comment", new Comment());
         model.addAttribute("comments", commentRepo.findAllByPostId(id));
 
+        // Posts
+        model.addAttribute("posts", postRepo.findRecent(8));
+
         return "blog";
     }
 

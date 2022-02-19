@@ -50,6 +50,7 @@ body {
 
 .blog-post p {
     font-size: 20px;
+    text-align: justify;
 }
 
 .blog-navigation {
@@ -145,4 +146,98 @@ body {
     border-width: 0px;
     border-radius: 5px;
     max-width: 1000px;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 5;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.div2 {
+    grid-area: 1 / 5 / 2 / 6;
+    width: 250px;
+}
+
+.nav-tile {
+    background-color:#f1edf2;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    border-radius: 20px;
+    place-self: center;
+    max-width: 250px;
+    margin-top: 125px;
+}
+
+.nav-tile a {
+    text-decoration: none;
+}
+
+.nav-tile h3 {
+    text-align: left;
+    margin-left: 10px;
+    transition: all .2s ease-in-out
+}
+
+.nav-tile h3:hover {
+    transform: scale(1.1);
+}
+
+.socials-tile {
+    background-color:#f1edf2;
+    padding: 20px;
+    position: fixed;
+    border-radius: 20px;
+    place-self: center;
+    align-self: center;
+    justify-self: center;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px;
+}
+
+/* SOCIAL MEDIA ICONS */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+@media only screen and (max-width: 1600px)
+{
+    .side-bar {
+         margin-top: 25px;
+    }
 }

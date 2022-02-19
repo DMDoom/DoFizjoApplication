@@ -16,6 +16,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body style="opacity:1;">
@@ -42,47 +43,68 @@
 
     <!-- WRAPPER -->
     <div class="wrapper">
-        <div class="blog-space">
-            <div class="blog-post">
-                <h1 th:text="${currentPost.title}"> Title </h1>
-                <div>
-                    <hr>
-                </div>
-                <h3 th:text="${currentPost.author} + ', ' + ${currentPost.createdAt}"> Author, date </h3>
-                <p th:utext="${currentPost.content}"> Content </p>
-            </div>
-            <div class="blog-navigation">
-                <span th:if="${olderPost != null}">
-                    <a th:href="@{/blog/{id}(id=${olderPost.id})}">
-                        <span>&larr; Starszy post</span>
-                    </a>
-                </span>
-                <span th:if="${newerPost != null}">
-                    <a th:href="@{/blog/{id}(id=${newerPost.id})}">
-                        <span>Nowszy post &rarr;</span>
-                    </a>
-                </span>
-            </div>
+        <div class="parent">
+            <div class="div1">
+                <div class="blog-space">
+                    <div class="blog-post">
+                        <h1 th:text="${currentPost.title}"> Title </h1>
+                        <div>
+                            <hr>
+                        </div>
+                        <h3 th:text="${currentPost.author} + ', ' + ${currentPost.createdAt}"> Author, date </h3>
+                        <p th:utext="${currentPost.content}"> Content </p>
+                    </div>
+                    <div class="blog-navigation">
+                        <span th:if="${olderPost != null}">
+                            <a th:href="@{/blog/{id}(id=${olderPost.id})}">
+                                <span>&larr; Starszy post</span>
+                            </a>
+                        </span>
+                        <span th:if="${newerPost != null}">
+                            <a th:href="@{/blog/{id}(id=${newerPost.id})}">
+                                <span>Nowszy post &rarr;</span>
+                            </a>
+                        </span>
+                    </div>
 
-            <div class="blog-separator">
-                <hr>
-            </div>
+                    <div class="blog-separator">
+                        <hr>
+                    </div>
 
-            <h1 style="margin-bottom: 20px;">Komentarze:</h1>
-            <div class="comments-section">
-                <div class="comment-tile" th:each="commentItem : ${comments}">
-                    <h2 th:text="${commentItem.author}">Author</h2>
-                    <h3 th:text="${commentItem.createdAt}">Date</h3>
-                    <p th:text="${commentItem.content}">Content</p>
+                    <h1 style="margin-bottom: 20px;">Komentarze:</h1>
+                    <div class="comments-section">
+                        <div class="comment-tile" th:each="commentItem : ${comments}">
+                            <h2 th:text="${commentItem.author}">Author</h2>
+                            <h3 th:text="${commentItem.createdAt}">Date</h3>
+                            <p th:text="${commentItem.content}">Content</p>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="add-comment" method="POST" th:action="@{/blog}" th:object="${comment}">
+                            <input name="author" placeholder="Imię" type="text" class="input-title"/>
+                            <textarea name="content" placeholder="Dodaj komentarz" type="text" class="input-content"></textarea>
+                            <input name="postId" th:value="${currentPost.id}" type="hidden"/>
+                            <button class="input-button" type="submit">Wstaw komentarz</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div>
-                <form class="add-comment" method="POST" th:action="@{/blog}" th:object="${comment}">
-                    <input name="author" placeholder="Imię" type="text" class="input-title"/>
-                    <textarea name="content" placeholder="Dodaj komentarz" type="text" class="input-content"></textarea>
-                    <input name="postId" th:value="${currentPost.id}" type="hidden"/>
-                    <button class="input-button" type="submit">Wstaw komentarz</button>
-                </form>
+            <div class="div2">
+                <div class="side-bar">
+                    <div class="nav-tile">
+                        <h2>Sprawdź też</h2>
+                        <div>
+                            <hr>
+                        </div>
+                        <a th:each="postItem : ${posts}" th:href="@{/blog/{id}(id=${postItem.id})}">
+                            <h3 th:text="${postItem.title}"> Diagnoza odcinka lędźwiowego</h3>
+                        </a>
+                    </div>
+                    <div class="socials-tile">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
