@@ -15,3 +15,5 @@ spring:
     url: ${CLEARDB_DATABASE_URL}
     username: ${CLEARDB_DATABASE_USERNAME}
     password: ${CLEARDB_DATABASE_PASSWORD}
+
+# # https://devcenter.heroku.com/articles/understanding-ssl-on-heroku#when-to-use-heroku-ssl

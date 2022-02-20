@@ -10,7 +10,7 @@ drop table if exists Comment_Queue;
 drop table if exists Post;
 
 create table if not exists Post (
-    id int serial primary key,
+    id serial primary key,
     author varchar(50) not null,
     title varchar(50) not null,
     content varchar(5000) not null,
@@ -24,21 +24,21 @@ create table if not exists Block (
 );
 
 create table if not exists Partner (
-    id int serial primary key,
+    id serial primary key,
     img varchar(50) not null,
     name varchar(50) not null,
     description varchar(1000) not null
 );
 
 create table if not exists Review (
-    id int serial primary key,
+    id serial primary key,
     author varchar(50) not null,
     discipline varchar(50) not null,
     opinion varchar(1000) not null
 );
 
 create table if not exists Method (
-    id int serial primary key,
+    id serial primary key,
     name varchar(100) not null,
     description varchar(500) not null
 );
@@ -58,8 +58,8 @@ create table authorities (
 create unique index ix_auth_username on authorities (username,authority);
 
 create table if not exists Comment (
-    id int serial primary key,
-    postid int,
+    id serial primary key,
+    postid bigint,
     createdAt timestamp,
     author varchar(50),
     content varchar(500),
@@ -67,15 +67,15 @@ create table if not exists Comment (
 );
 
 create table if not exists Post_Comments (
-    postid int,
-    commentid int,
+    postid bigint,
+    commentid bigint,
     foreign key(postid) references Post(id) on delete cascade,
     foreign key(commentid) references Comment(id) on delete cascade
 );
 
 create table if not exists Comment_Queue (
-    id int serial primary key,
-    postid int,
+    id serial primary key,
+    postid bigint,
     createdAt timestamp,
     author varchar(50),
     content varchar(500),
