@@ -38,6 +38,7 @@
         </div>
 
         <div class="element-grid">
+            <h1 style="margin-top: 75px;"> komentarze </h1>
             <div class="review-panel">
                 <form method="POST" th:action="@{/cms/blog/comment}" th:object="${comment}" th:each="commentItem : ${commentQueue}">
                     <div class="review-tile">

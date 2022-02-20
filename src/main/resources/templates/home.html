@@ -16,6 +16,7 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -40,6 +41,28 @@
     <div class="separator"></div>
 </div>
 
+<div class="mobile-header">
+    <div class="flex-header">
+        <div class="quick-contact-flex">
+            <a href="#link" th:text="${lokalizacja.title}"> address </a>
+            <a href="#link" th:text="${kontakt.title}"> phone </a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a th:href="@{/}">zapraszamy</a>
+                <a th:href="@{/office}">dla firm</a>
+                <a th:href="@{/wiecej}">o nas</a>
+                <a th:href="@{/blog}">blog</a>
+                <a href="#rekomendacje">rekomendacje</a>
+                <a href="#partnerzy">partnerzy</a>
+            </div>
+        </div>
+        <img th:src="@{/images/logo.png}" width="85" height="85">
+    </div>
+    <div class="separator"></div>
+</div>
+
 <!-- WRAPPER -->
 <div class="wrapper">
     <!-- WELCOME BLOCK -->
@@ -47,7 +70,7 @@
         <div class="welcome-text revealrowleft">
             <h1 th:text="${zapraszamy.title}"> zapraszamy </h1>
             <hr>
-            <p th:text="${zapraszamy.content}"> opis </p>
+            <p style="font-size: 26px;" th:text="${zapraszamy.content}"> opis </p>
         </div>
         <div class="cycle revealrowright">
             <div class="slider">
@@ -118,7 +141,10 @@
         <div class="grid-left">
             <div class="social-media">
                 <h1 class="revealrowleft"> o nas </h1>
-                <img th:src="@{images/socials.png}" class="revealrowleft">
+                <div class="home-socials-tile revealrowleft">
+                    <a href="https://www.facebook.com/DOfizjo" class="fa fa-facebook" style="font-size:70px;"></a>
+                    <a href="https://www.instagram.com/do.fizjo" class="fa fa-instagram" style="font-size:70px;"></a>
+                </div>
             </div>
             <div class="mateusz revealrowleft">
                 <img th:src="@{images/mateusz.jpg}">

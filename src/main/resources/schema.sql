@@ -1,10 +1,13 @@
-drop table if exists Post;
 drop table if exists Block;
 drop table if exists Partner;
 drop table if exists Review;
 drop table if exists Method;
 drop table if exists authorities;
 drop table if exists users;
+drop table if exists Post_Comments;
+drop table if exists Comments;
+drop table if exists Comment_Queue;
+drop table if exists Post;
 
 create table if not exists Post (
     id serial primary key,
@@ -60,14 +63,14 @@ create table if not exists Comment (
     createdAt timestamp,
     author varchar(50),
     content varchar(500),
-    foreign key(postid) references Post(id)
+    foreign key(postid) references Post(id) on delete cascade
 );
 
 create table if not exists Post_Comments (
     postid varchar(10),
     commentid varchar(10),
-    foreign key(postid) references Post(id),
-    foreign key(commentid) references Comment(id)
+    foreign key(postid) references Post(id) on delete cascade,
+    foreign key(commentid) references Comment(id) on delete cascade
 );
 
 create table if not exists Comment_Queue (
@@ -76,5 +79,5 @@ create table if not exists Comment_Queue (
     createdAt timestamp,
     author varchar(50),
     content varchar(500),
-    foreign key(postid) references Post(id)
+    foreign key(postid) references Post(id) on delete cascade
 );

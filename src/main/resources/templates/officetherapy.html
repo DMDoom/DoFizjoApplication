@@ -41,6 +41,28 @@
         <div class="separator"></div>
     </div>
 
+    <div class="mobile-header">
+        <div class="flex-header">
+            <div class="quick-contact-flex">
+                <a href="#link" th:text="${lokalizacja.title}"> address </a>
+                <a href="#link" th:text="${kontakt.title}"> phone </a>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a th:href="@{/}">zapraszamy</a>
+                    <a th:href="@{/office}">dla firm</a>
+                    <a th:href="@{/wiecej}">o nas</a>
+                    <a th:href="@{/blog}">blog</a>
+                    <a th:href="@{/}">rekomendacje</a>
+                    <a th:href="@{/}">partnerzy</a>
+                </div>
+            </div>
+            <img th:src="@{/images/logo.png}" width="85" height="85">
+        </div>
+        <div class="separator"></div>
+    </div>
+
         <!-- WRAPPER -->
         <div class="wrapper">
             <div class="blog-space">

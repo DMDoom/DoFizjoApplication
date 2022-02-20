@@ -1,8 +1,6 @@
 insert into Post (id, author, title, content, createdAt)
     values ('1', 'Mateusz', 'Lorem ipsum', 'Curabitur risus felis', '2017-07-23');
 insert into Post (id, author, title, content, createdAt)
-    values ('2', 'Mateusz', 'Lorem ipsum', 'Curabitur risus felis', '2018-07-24');
-insert into Post (id, author, title, content, createdAt)
     values ('3', 'Mateusz', 'Shin splints', '<p>
 <b>Shin Splints</b> to nazwa bardzo charakterystycznej przypadłości typowej dla biegaczy. Trudno jest znaleźć dla tego problemu – bo ciężko mówić tu o urazie – rozsądny odpowiednik nazwy w języku polskim. Czasem można spotkać się z określeniem „ból goleni” i podobnymi.
 Możliwe, że nawet ponad 15% biegaczy doświadcza tego problemu przynajmniej raz.
@@ -30,7 +28,7 @@ Terapia nastawiona na rozluźniania wspomnianych mięśni potrafi być dość bo
 <p>
 Wzmożone napięcie mięśni to bezpośrednia przyczyna dolegliwości, natomiast jakiś czynnik musiał te zmiany napięcia wywołać. Jeśli ból pojawia się u osoby, która biega już jakiś czas i nie miała wcześniej takiego problemu – przyczyn należy szukać w niedawnych zmianach. Przyczyną może być: zmiana obuwia, zmiana nawierzchni, zmiana z biegów w terenie na bieżnię (rzadko odwrotnie), przebyty uraz mogący wpłynąć na technikę biegu.
 Jeśli ból pojawia się już na starcie przygody z bieganiem, wówczas problemem będzie źle dobrane obuwie lub, najczęściej – nieprawidłowa technika biegu. Analiza techniki biegu zdecydowanie wykracza już jednak poza ramy tego artykułu.
-</p>', '2019-07-24');
+</p>', '2022-02-20');
 
 insert into Review (id, author, discipline, opinion)
     values ('1', 'Kuba Tymiński', 'Kadra narodowa Muay Thai, K1', 'Wielkie dzięki Panowie za robotę jaką wykonujecie. Teraz mogę trenować na 100% i nie martwić się o nawracające kontuzje. Od czasu, kiedy zaczęliśmy współpracować bóle nóg i pleców, które towarzyszyły mi parę lat minęły. Naprawdę nie pamiętam kiedy ostatnio byłem tak spokojny o swój organizm. Jeszcze raz dziękuję!');
@@ -75,7 +73,7 @@ insert into Block (id, title, content)
 insert into Block (id, title, content)
     values('lokalizacja', 'ul. Marii Curie Skłodowskiej 26', 'ul. Jagiellońska 109/23');
 insert into Block(id, title, content)
-    values('mateuszS', 'Mateusz Dobrzyński','Mateusz jest zapalonym sportowcem, już od wczesnych lat dzieciństwa próbował swoich sił w różnych dyscyplinach sportowych. Początkowo na celowniku znalazły się u niego tenis ziemny i judo, jednak wraz z wiekiem odkrywał swoje talenty w piłce nożnej i trójboju siłowym, z którymi związany jest do dzisiaj. Obie te dyscypliny stały się zapalnikiem w poszerzaniu wiedzy, zarówno z zakresu sportu jak i wpływu aktywności fizycznej na organizm człowieka. Takie zainteresowania przyczyniły się do wyboru studiów fizjoterapeutycznych jako kolejnego etapu edukacji na Wydziale Collegium Medicum w Bydgoszczy.');
+    values('mateuszS', 'Mateusz Dobrzyński','Mateusz jest zapalonym sportowcem, już od wczesnych lat dzieciństwa próbował swoich sił w różnych dyscyplinach sportowych. Początkowo na celowniku znalazły się u niego tenis ziemny i judo, jednak wraz z wiekiem odkrywał swoje talenty w piłce nożnej i trójboju siłowym, z którymi związany jest do dzisiaj. Obie te dyscypliny stały się zapalnikiem w poszerzaniu wiedzy, zarówno z zakresu sportu jak i wpływu aktywności fizycznej na organizm człowieka. Studiuje fizjoterapie na Wydziale Collegium Medicum w Bydgoszczy.');
 insert into Block(id, title, content)
     values('karolS', 'Karol Owsiński','Karol jest pasjonatem sportu oraz różnych form aktywności fizycznej. Od najmłodszych lat miał kontakt z gimnastyką, a później kalisteniką, którą z czasem zamienił na rzecz treningów trójboju siłowego. Oprócz tego studiował również wychowanie fizyczne, co przybliżyło mu specyfikę sportów drużynowych takich jak np.: siatkówka, czy piłka nożna. Tak bliski kontakt ze sportem pozwala mu doskonale zrozumieć problemy, z jakimi borykają się jego pacjenci, dzięki czemu jest w stanie szybko im pomóc.');
 insert into Block(id, title, content)

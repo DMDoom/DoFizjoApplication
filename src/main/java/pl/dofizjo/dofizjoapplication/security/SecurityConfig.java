@@ -38,9 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Configuring access
         http
                 .authorizeRequests()
-                    .antMatchers( "/cms", "/cms/edit", "/cms/blog", "/register")
+                    .antMatchers( "/cms", "/cms/**", "/cms/edit", "/cms/blog", "/register")
                         .access("hasRole('ROLE_ADMIN')")
-                    .antMatchers("/", "/blog", "/office")
+                    .antMatchers("/", "/blog", "/office", "/wiecej")
                         .access("permitAll")
                     .and()
                         .formLogin()
