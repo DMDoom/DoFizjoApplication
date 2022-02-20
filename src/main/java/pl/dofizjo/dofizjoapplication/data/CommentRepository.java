@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
@@ -72,5 +73,35 @@ public class CommentRepository {
     // Delete by id
     public void deleteById(int id) {
         jdbc.update("DELETE from COMMENT where id=?", id);
+    }
+
+    // Make CommentRepo add comments to Comment_queue by default
+    // then from CMS, this repo will expose methods to copy rows from Comment_Queue into Comment and Post_Comments
+    // https://www.geeksforgeeks.org/how-to-copy-rows-from-one-table-to-another-in-sql/
+
+    // Add to queue
+    public void addToQueue(Comment comment) {
+        comment.setCreatedAt(new Date());
+        jdbc.update("INSERT into COMMENT_QUEUE (postid, author, content, createdAt) values (?, ?, ?, ?)",
+                comment.getPostId(),
+                comment.getAuthor(),
+                comment.getContent(),
+                comment.getCreatedAt());
+    }
+
+    // Delete from queue by id
+    public void deleteFromQueueById(int id) {
+        jdbc.update("DELETE from COMMENT_QUEUE where id=?", id);
+    }
+
+    // Find all in queue
+    public List<Comment> findAllInQueue() {
+        return jdbc.query("SELECT * FROM COMMENT_QUEUE", new CommentMapper());
+    }
+
+    // Move from queue to comments
+    public void acceptComment(Comment comment) {
+        deleteFromQueueById(comment.getId());
+        add(comment);
     }
 }

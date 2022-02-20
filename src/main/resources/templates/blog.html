@@ -73,6 +73,12 @@
 
                     <h1 style="margin-bottom: 20px;">Komentarze:</h1>
                     <div class="comments-section">
+                        <span th:if="${success}">
+                            <div class="success-alert">
+                                <h2>Komentarz dodany pomyślnie</h2>
+                                <p>Twój komentarz został dodany i czeka na akceptacje przez administracje strony. Dziękujemy!</p>
+                            </div>
+                        </span>
                         <div class="comment-tile" th:each="commentItem : ${comments}">
                             <h2 th:text="${commentItem.author}">Author</h2>
                             <h3 th:text="${commentItem.createdAt}">Date</h3>

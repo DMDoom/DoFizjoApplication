@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.dofizjo.dofizjoapplication.data.BlockRepository;
 import pl.dofizjo.dofizjoapplication.data.CommentRepository;
 import pl.dofizjo.dofizjoapplication.data.PostRepository;
@@ -59,9 +60,10 @@ public class BlogController {
     }
 
     @PostMapping
-    public String postComment(Comment comment) {
-        // Save comment
-        commentRepo.add(comment);
+    public String postComment(Comment comment, RedirectAttributes redirectAttributes) {
+        // Add comment to queue
+        commentRepo.addToQueue(comment);
+        redirectAttributes.addFlashAttribute("success", true);
 
         // Possible error to handle: will not be able to delete posts with comments due to constraint
 

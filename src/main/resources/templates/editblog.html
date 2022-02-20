@@ -9,29 +9,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 style="margin-top: 75px;"> treść </h1>
-    <div class="edit-panel">
-        <form method="POST" th:action="@{/cms/blog/update}" th:object="${post}">
-            <div class="edit-tile">
-                <input name="author" type="text" class="input-title"/>
-                <input name="title" type="text" class="input-title"/>
-                <textarea name="content" type="text" class="input-content"></textarea>
-                <button class="input-button" type="submit" name="action" value="add">Add</button>
+    <div class="container">
+        <div class="block-grid">
+            <h1 style="margin-top: 75px;"> treść </h1>
+            <div class="edit-panel">
+                <form method="POST" th:action="@{/cms/blog/update}" th:object="${post}">
+                    <div class="edit-tile">
+                        <input name="author" type="text" class="input-title"/>
+                        <input name="title" type="text" class="input-title"/>
+                        <textarea name="content" type="text" class="input-content"></textarea>
+                        <button class="input-button" type="submit" name="action" value="add">Add</button>
+                    </div>
+                </form>
+                <form method="POST" th:action="@{/cms/blog/update}" th:object="${post}" th:each="postItem : ${posts}">
+                    <div class="edit-tile">
+                        <input name="author" type="text" class="input-title" th:value="${postItem.author}"/>
+                        <input name="title" type="text" class="input-title" th:value="${postItem.title}"/>
+                        <textarea name="content" type="text" class="input-content" th:text="${postItem.content}"></textarea>
+                        <input name="id" type="hidden" th:value="${postItem.id}"/>
+                        <input name="date" type="hidden" th:value="${postItem.createdAt}" />
+                        <div class="buttons">
+                            <button type="submit" class="input-button" name="action" value="update">Update</button>
+                            <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-        <form method="POST" th:action="@{/cms/blog/update}" th:object="${post}" th:each="postItem : ${posts}">
-            <div class="edit-tile">
-                <input name="author" type="text" class="input-title" th:value="${postItem.author}"/>
-                <input name="title" type="text" class="input-title" th:value="${postItem.title}"/>
-                <textarea name="content" type="text" class="input-content" th:text="${postItem.content}"></textarea>
-                <input name="id" type="hidden" th:value="${postItem.id}"/>
-                <input name="date" type="hidden" th:value="${postItem.createdAt}" />
-                <div class="buttons">
-                    <button type="submit" class="input-button" name="action" value="update">Update</button>
-                    <button type="submit" class="delete-button" name="action" value="delete">Delete</button>
-                </div>
+        </div>
+
+        <div class="element-grid">
+            <div class="review-panel">
+                <form method="POST" th:action="@{/cms/blog/comment}" th:object="${comment}" th:each="commentItem : ${commentQueue}">
+                    <div class="review-tile">
+                        <input name="author" type="text" class="input-name" th:value="${commentItem.author}"/>
+                        <!--<input name="createdAt" type="date" class="input-discipline" th:value="${commentItem.createdAt}"/>-->
+                        <textarea name="content" type="text" class="input-opinion" th:text="${commentItem.content}"></textarea>
+                        <input name="id" type="hidden" th:value="${commentItem.id}"/>
+                        <input name="postId" type="hidden" th:value="${commentItem.postId}"/>
+                        <div class="buttons">
+                            <button type="submit" class="input-button" name="action" value="accept">Accept</button>
+                            <button type="submit" class="delete-button" name="action" value="reject">Reject</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+
     </div>
 </body>
 </html>

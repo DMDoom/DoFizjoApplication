@@ -69,3 +69,12 @@ create table if not exists Post_Comments (
     foreign key(postid) references Post(id),
     foreign key(commentid) references Comment(id)
 );
+
+create table if not exists Comment_Queue (
+    id serial primary key,
+    postid varchar(10),
+    createdAt timestamp,
+    author varchar(50),
+    content varchar(500),
+    foreign key(postid) references Post(id)
+);

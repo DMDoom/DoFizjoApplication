@@ -240,13 +240,13 @@ body {
     grid-auto-flow: row;
     grid-template-areas:
       "block-grid element-grid";
-  }
+}
 
-  .static-grid { grid-area: block-grid; }
+.static-grid { grid-area: block-grid; }
 
-  .review-grid { grid-area: element-grid; }
+.review-grid { grid-area: element-grid; }
 
-  /* PARTNER PANEL */
+/* PARTNER PANEL */
 .partner-panel {
     display: flex;
     flex-direction: row;

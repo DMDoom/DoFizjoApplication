@@ -36,7 +36,6 @@ public class DofizjoApplication {
 			// Comment test
 			Comment comment = new Comment(3, "Developer", "Lorem ipsum", new Date());
 			commentRepo.add(comment);
-
 		};
 	}
 }

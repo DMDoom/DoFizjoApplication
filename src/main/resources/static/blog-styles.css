@@ -207,6 +207,23 @@ body {
     margin-top: 75px;
 }
 
+.success-alert {
+    background-color: var(--siteMinor);
+    padding: 20px;
+    opacity: 0.8;
+}
+
+.success-alert h2 {
+    font-size: 25px;
+    text-align: left;
+    color: white;
+}
+
+.success-alert p {
+    font-size: 20px;
+    color: white;
+}
+
 /* SOCIAL MEDIA ICONS */
 .fa {
     padding: 20px;
