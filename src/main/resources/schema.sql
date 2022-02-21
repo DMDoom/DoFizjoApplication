@@ -5,7 +5,7 @@ drop table if exists Method;
 drop table if exists authorities;
 drop table if exists users;
 drop table if exists Post_Comments;
-drop table if exists Comments;
+drop table if exists Comment;
 drop table if exists Comment_Queue;
 drop table if exists Post;
 
