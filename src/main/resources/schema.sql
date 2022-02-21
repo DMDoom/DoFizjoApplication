@@ -59,7 +59,7 @@ create unique index ix_auth_username on authorities (username,authority);
 
 create table if not exists Comment (
     id serial primary key,
-    postid bigint,
+    postid bigint UNSIGNED,
     createdAt timestamp,
     author varchar(50),
     content varchar(500),
@@ -67,15 +67,15 @@ create table if not exists Comment (
 );
 
 create table if not exists Post_Comments (
-    postid bigint,
-    commentid bigint,
+    postid bigint UNSIGNED,
+    commentid bigint UNSIGNED,
     foreign key(postid) references Post(id) on delete cascade,
     foreign key(commentid) references Comment(id) on delete cascade
 );
 
 create table if not exists Comment_Queue (
     id serial primary key,
-    postid bigint,
+    postid bigint UNSIGNED,
     createdAt timestamp,
     author varchar(50),
     content varchar(500),
