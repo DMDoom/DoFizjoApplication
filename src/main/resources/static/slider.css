@@ -10,6 +10,9 @@
 
     --imgWidthLaptop: 600px;
     --imgHeightLaptop: 540px;
+
+    --imgWidthMobile: 400px;
+    --imgHeightMobile: 360px;
 }
 
 /* LOL */
@@ -140,5 +143,30 @@
 
     .navigation-auto {
         width: var(--imgWidthLaptop);
+    }
+}
+
+@media only screen and (max-width: 991px)
+{
+    .slider {
+        width: var(--imgWidthMobile);
+        height: var(--imgHeightMobile);
+    }
+
+    .slides {
+        height: var(--imgHeightMobile);
+    }
+
+    .slide img {
+        width: var(--imgWidthMobile);
+        height: var(--imgHeightMobile);
+    }
+
+    .navigation-manual {
+        width: var(--imgWidthMobile);
+    }
+
+    .navigation-auto {
+        width: var(--imgWidthMobile);
     }
 }

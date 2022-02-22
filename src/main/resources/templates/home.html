@@ -70,7 +70,7 @@
         <div class="welcome-text revealrowleft">
             <h1 th:text="${zapraszamy.title}"> zapraszamy </h1>
             <hr>
-            <p style="font-size: 26px;" th:text="${zapraszamy.content}"> opis </p>
+            <p th:text="${zapraszamy.content}"> opis </p>
         </div>
         <div class="cycle revealrowright">
             <div class="slider">
@@ -95,7 +95,7 @@
                         <img th:src="@{/images/4slide.jpeg}" alt="">
                     </div>
 
-                    <!--automatic navigation start-->
+                    <!-- automatic navigation -->
                     <div class="navigation-auto">
                         <div class="auto-btn1"></div>
                         <div class="auto-btn2"></div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <!--manual navigation start-->
+                <!-- manual navigation -->
                 <div class="navigation-manual">
                     <label for="radio1" class="manual-btn"></label>
                     <label for="radio2" class="manual-btn"></label>
@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-            <!-- scripts start -->
+            <!-- scroll script  -->
             <script type="text/javascript">
                   var counter = 1;
                   setInterval(function(){
@@ -123,7 +123,7 @@
                       counter = 1;
                     }
                   }, 7500);
-                  </script>
+            </script>
         </div>
     </div>
 
@@ -140,7 +140,7 @@
     <div class="container">
         <div class="grid-left">
             <div class="social-media">
-                <h1 class="revealrowleft"> o nas </h1>
+                <h1 class="revealrowleft"> O nas </h1>
                 <div class="home-socials-tile revealrowleft">
                     <a href="https://www.facebook.com/DOfizjo" class="fa fa-facebook" style="font-size:70px;"></a>
                     <a href="https://www.instagram.com/do.fizjo" class="fa fa-instagram" style="font-size:70px;"></a>
@@ -153,7 +153,7 @@
                 <a th:href="@{/wiecej}">więcej</a>
             </div>
             <div class="methods">
-                <h1 class="revealrowleft"> oferta </h1>
+                <h1 class="revealrowleft"> Oferta </h1>
                 <h2 class="revealrowleft" th:text="${metody.title}"> analiza i terapia </h2>
                 <p class="revealrowleft" th:text="${metody.content}"> opis </p>
                 <img th:src="@{images/method.jpg}" class="revealrowleft">
@@ -193,7 +193,7 @@
                 </div>
             </div>
             <div class="contact" id="kontakt">
-                <h1 class="revealrowright">kontakt</h1>
+                <h1 class="revealrowright">Kontakt</h1>
                 <h2 class="revealrowright" th:text="${kontakt.content}"> email </h2>
                 <h2 class="revealrowright" id="phone" th:text="${kontakt.title}"> phone </h2>
                 <h2 class="revealrowright" th:text="${lokalizacja.title}"> address </h2>
@@ -239,13 +239,8 @@
                 </tr>
                 <tr onClick='toggleRow(this)' th:each="review : ${reviews}">
                     <td th:text="${review.author}">Author</td>
-                    <td th:text="'&darr;&nbsp;&nbsp;' + ${review.discipline}">MMA</td>
-                    <td class='expanded-row-content hide-row' th:text="${review.opinion}">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.</td>
+                    <td th:text="'&darr;&nbsp;&nbsp;' + ${review.discipline}">Discipline</td>
+                    <td class='expanded-row-content hide-row' th:text="${review.opinion}">Opinion</td>
                 </tr>
             </table>
         </div>

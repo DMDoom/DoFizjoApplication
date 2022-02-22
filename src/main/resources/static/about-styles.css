@@ -16,6 +16,8 @@
     gap: 50px;
     margin-top: 50px;
     align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .tile-info {
@@ -24,9 +26,27 @@
 }
 
 .about-tile img {
-    max-height: 600px;
+    max-width: 450px;
+    border-radius: 20px;
 }
 
 .tile-info p {
     text-align: justify;
+}
+
+.about-tile-office {
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+    margin-top: 50px;
+    min-width: 1000px;
+    gap: 50px;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.about-tile-office img {
+    max-width: 650px;
+    border-radius: 20px;
 }

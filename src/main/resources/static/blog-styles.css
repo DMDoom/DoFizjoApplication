@@ -8,21 +8,11 @@
     --fontMinor: 'Barlow', sans-serif;
 }
 
-p { 
+p {
     font-family: var(--fontMajor);
-    font-size: 24px;
 }
 
 h2 {
-    text-align: center;
-}
-
-h3 {
-    font-family: var(--fontMajor);
-    font-size: 20px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    color: grey;
     text-align: center;
 }
 
@@ -43,14 +33,50 @@ body {
     justify-content: flex-start;
 }
 
-.blog-post img {
-    border-radius: 20px;
-    max-width: 1000px; 
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.blog-post p {
-    font-size: 20px;
+/* DEFAULT BLOG POST STYLES */
+.blog-content img {
+    border-radius: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-content p {
     text-align: justify;
+}
+
+.blog-content h1 {
+    font-family: var(--fontMajor);
+    font-weight: bold;
+    text-align: left;
+    font-size: 32px;
+}
+
+.blog-content h2 {
+    font-family: var(--fontMajor);
+    font-weight: bold;
+    text-align: left;
+    font-size: 28px;
+}
+
+.blog-content h3 {
+    font-family: var(--fontMajor);
+    font-weight: bold;
+    text-align: left;
+    font-size: 24px;
+}
+
+.blog-content h4 {
+    font-family: var(--fontMajor);
+    font-weight: bold;
+    text-align: left;
+    font-size: 22px;
 }
 
 .blog-navigation {
@@ -61,18 +87,25 @@ body {
     justify-content: space-around;
 }
 
-.blog-navigation a {
+.blog-navigation span {
     font-family: var(--fontMinor);
-    font-size: 30px;
     font-weight: bold;
     color: grey;
     text-decoration: none;
     transition: all .2s ease-in-out
 }
 
-.blog-navigation a:hover {
-    transform: scale(1.1);
+.nav-span {
+    font-size: 26px;
+}
+
+.blog-navigation span:hover {
+    transform: scale(1.05);
     color: var(--siteMajor);
+}
+
+.blog-navigation a {
+    text-decoration: none;
 }
 
 .comments-section {
@@ -82,21 +115,18 @@ body {
 }
 
 .comment-tile h2 {
-    font-size: 25px;
+    font-size: 26px;
     text-align: left;
 }
 
 .comment-tile h3 {
+    font-size: 22px;
     text-align: left;
 }
 
 .comment-tile {
     background-color: #f1edf2;
     padding: 20px;
-}
-
-.comment-tile p {
-    font-size: 20px;
 }
 
 .add-comment {
@@ -173,7 +203,6 @@ body {
     position: fixed;
     border-radius: 20px;
     place-self: center;
-    max-width: 250px;
     margin-top: 125px;
 }
 
@@ -214,13 +243,12 @@ body {
 }
 
 .success-alert h2 {
-    font-size: 25px;
     text-align: left;
     color: white;
+    font-size: 26px;
 }
 
 .success-alert p {
-    font-size: 20px;
     color: white;
 }
 
@@ -262,6 +290,11 @@ body {
 @media only screen and (max-width: 991px)
 {
     .side-bar {
-         display: none;
+         display: block;
+    }
+
+    .nav-tile {
+        /* CSS won't listen */
+        width: 185px;
     }
 }
