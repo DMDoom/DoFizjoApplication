@@ -87,6 +87,8 @@ insert into Partner (id, img, name, description)
     values('1', '/images/logos/huntergym.png', 'Hunter Gym', 'Przedstawiamy wam jedną z naszych pierwszych współprac - Hunter Gym. Hunter gym to szkoła walki zajmująca się szkoleniem zawodników Kickboxingu, Muay Thai, K1 i boksu. Naszym zadaniem jest dbać o zdrowie i regenerację chłopaków, podczas ich przygotowań do mistrzostw świata. ');
 insert into Partner (id, img, name, description)
     values('4', '/images/logos/organicfitness.jpg', 'Organic Fitness', 'Oto kolejna społeczność, z którą rozpoczęliśmy współpracę. Mowa oczywiście o Organic Fitness.Będziemy regularnie ich odwiedzać i przeprowadzać darmowe warsztaty diagnostyczne z elementami terapii, dlatego też koniecznie śledźcie ich profil, jeśli nie chcecie tego przegapić!');
+insert into Partner (id, img, name, description)
+    values('5', '/images/logos/poledance.jpg', 'Akademia Pole Dance', 'W ramach naszej współpracy oferujemy klubowiczom atrakcyjną zniżkę na usługi fizjoterapeutyczne. Planujemy również regularnie odwiedzać akademię, aby wspólnie z Agnieszką i Bartkiem prowadzić warsztaty edukacyjno-diagnostyczne.');
 
 
 

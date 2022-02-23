@@ -25,7 +25,7 @@
 <div class="header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" id="quick-contact-address" th:utext="${lokalizacja.title}"> address </a>
+            <a href="https://goo.gl/maps/KUJPxGVNsUDqg98H6" id="quick-contact-address" th:utext="${lokalizacja.title}"> address </a>
             <a href="tel:+48 731 278 308" id="quick-contact-phone" th:utext="${kontakt.title}"> phone </a>
         </div>
         <div class="navigation-link-flex">
@@ -44,7 +44,7 @@
 <div class="mobile-header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" th:utext="${lokalizacja.title}"> address </a>
+            <a href="https://goo.gl/maps/KUJPxGVNsUDqg98H6" th:utext="${lokalizacja.title}"> address </a>
             <a href="tel:+48 731 278 308" th:utext="${kontakt.title}"> phone </a>
         </div>
         <div class="dropdown">
@@ -122,7 +122,7 @@
                     if(counter > 4){
                       counter = 1;
                     }
-                  }, 7500);
+                  }, 6000);
             </script>
         </div>
     </div>
@@ -133,6 +133,9 @@
             <h1 th:utext="${oferta.title}"> oferta </h1>
             <hr>
             <p th:utext="${oferta.content}"> opis </p>
+            <a th:href="@{/office}">
+                <p style="text-align: center;">Sprawdź ofertę dla firm</p>
+            </a>
         </div>
     </div>
 
@@ -195,7 +198,9 @@
             <div class="contact" id="kontakt">
                 <h1 class="revealrowright">Kontakt</h1>
                 <h2 class="revealrowright" th:utext="${kontakt.content}"> email </h2>
-                <h2 class="revealrowright" id="phone" th:utext="${kontakt.title}"> phone </h2>
+                <a href="tel:+48 731 278 308" style="text-decoration: none">
+                    <h2 class="revealrowright" id="phone" th:utext="${kontakt.title}"> phone </h2>
+                </a>
                 <h2 class="revealrowright" th:utext="${lokalizacja.title}"> address </h2>
                 <h2 class="revealrowright" th:utext="${lokalizacja.content}"> address2 </h2>
                 <!--<img th:src="@{images/logo.png}" class="revealrowright">-->

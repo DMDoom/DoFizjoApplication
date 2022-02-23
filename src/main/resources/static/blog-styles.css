@@ -172,7 +172,7 @@ body {
 
 .blog-separator hr {
     height: 5px;
-    background-color: #3c97cd;
+    background-color: var(--siteMajor);
     border-width: 0px;
     border-radius: 5px;
     max-width: 1000px;
