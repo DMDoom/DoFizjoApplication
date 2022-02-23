@@ -25,8 +25,8 @@
 <div class="header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" id="quick-contact-address" th:text="${lokalizacja.title}"> address </a>
-            <a href="#link" id="quick-contact-phone" th:text="${kontakt.title}"> phone </a>
+            <a href="#link" id="quick-contact-address" th:utext="${lokalizacja.title}"> address </a>
+            <a href="tel:+48 731 278 308" id="quick-contact-phone" th:utext="${kontakt.title}"> phone </a>
         </div>
         <div class="navigation-link-flex">
             <a th:href="@{/}">zapraszamy</a>
@@ -44,8 +44,8 @@
 <div class="mobile-header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" th:text="${lokalizacja.title}"> address </a>
-            <a href="#link" th:text="${kontakt.title}"> phone </a>
+            <a href="#link" th:utext="${lokalizacja.title}"> address </a>
+            <a href="tel:+48 731 278 308" th:utext="${kontakt.title}"> phone </a>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Menu</button>
@@ -68,9 +68,9 @@
     <!-- WELCOME BLOCK -->
     <div class="flex-welcome-block">
         <div class="welcome-text revealrowleft">
-            <h1 th:text="${zapraszamy.title}"> zapraszamy </h1>
+            <h1 th:utext="${zapraszamy.title}"> zapraszamy </h1>
             <hr>
-            <p th:text="${zapraszamy.content}"> opis </p>
+            <p th:utext="${zapraszamy.content}"> opis </p>
         </div>
         <div class="cycle revealrowright">
             <div class="slider">
@@ -130,9 +130,9 @@
     <!-- IMAGE BLOCK -->
     <div class="image-separator">
         <div class="image-text revealcol">
-            <h1 th:text="${oferta.title}"> oferta </h1>
+            <h1 th:utext="${oferta.title}"> oferta </h1>
             <hr>
-            <p th:text="${oferta.content}"> opis </p>
+            <p th:utext="${oferta.content}"> opis </p>
         </div>
     </div>
 
@@ -148,20 +148,20 @@
             </div>
             <div class="mateusz revealrowleft">
                 <img th:src="@{images/mateusz.jpg}">
-                <h2 th:text="${mateusz.title}"> mateusz </h2>
-                <p th:text="${mateusz.content}"> opis </p>
+                <h2 th:utext="${mateusz.title}"> mateusz </h2>
+                <p th:utext="${mateusz.content}"> opis </p>
                 <a th:href="@{/wiecej}">więcej</a>
             </div>
             <div class="methods">
                 <h1 class="revealrowleft"> Oferta </h1>
-                <h2 class="revealrowleft" th:text="${metody.title}"> analiza i terapia </h2>
-                <p class="revealrowleft" th:text="${metody.content}"> opis </p>
+                <h2 class="revealrowleft" th:utext="${metody.title}"> analiza i terapia </h2>
+                <p class="revealrowleft" th:utext="${metody.content}"> opis </p>
                 <img th:src="@{images/method.jpg}" class="revealrowleft">
             </div>
             <div class="therapy-left">
                 <div class="left-therapy-block revealrowleft" th:each="method : ${methodsLeft}">
-                    <h2 th:text="${method.name}"> metoda </h2>
-                    <p th:text="${method.description}"> opis </p>
+                    <h2 th:utext="${method.name}"> metoda </h2>
+                    <p th:utext="${method.description}"> opis </p>
                 </div>
             </div>
             <div class="location revealrowleft">
@@ -176,29 +176,29 @@
         <div class="grid-right">
             <div class="karol revealrowright">
                 <img th:src="@{images/karol.jpg}">
-                <h2 th:text="${karol.title}"> karol </h2>
-                <p th:text="${karol.content}"> opis </p>
+                <h2 th:utext="${karol.title}"> karol </h2>
+                <p th:utext="${karol.content}"> opis </p>
                 <a th:href="@{/wiecej}">więcej</a>
             </div>
             <div class="karol revealrowright">
                 <img th:src="@{images/rafal.jpg}">
-                <h2 th:text="${rafal.title}"> rafal </h2>
-                <p th:text="${rafal.content}"> opis </p>
+                <h2 th:utext="${rafal.title}"> rafal </h2>
+                <p th:utext="${rafal.content}"> opis </p>
                 <a th:href="@{/wiecej}">więcej</a>
             </div>
             <div class="therapy-right">
                 <div class="right-therapy-block revealrowright" th:each="method : ${methodsRight}">
-                    <h2 th:text="${method.name}"> metoda </h2>
-                    <p th:text="${method.description}"> opis </p>
+                    <h2 th:utext="${method.name}"> metoda </h2>
+                    <p th:utext="${method.description}"> opis </p>
                 </div>
             </div>
             <div class="contact" id="kontakt">
                 <h1 class="revealrowright">Kontakt</h1>
-                <h2 class="revealrowright" th:text="${kontakt.content}"> email </h2>
-                <h2 class="revealrowright" id="phone" th:text="${kontakt.title}"> phone </h2>
-                <h2 class="revealrowright" th:text="${lokalizacja.title}"> address </h2>
-                <h2 class="revealrowright" th:text="${lokalizacja.content}"> address2 </h2>
-                <img th:src="@{images/logo.png}" class="revealrowright">
+                <h2 class="revealrowright" th:utext="${kontakt.content}"> email </h2>
+                <h2 class="revealrowright" id="phone" th:utext="${kontakt.title}"> phone </h2>
+                <h2 class="revealrowright" th:utext="${lokalizacja.title}"> address </h2>
+                <h2 class="revealrowright" th:utext="${lokalizacja.content}"> address2 </h2>
+                <!--<img th:src="@{images/logo.png}" class="revealrowright">-->
             </div>
         </div>
     </div>
@@ -214,11 +214,11 @@
     <div class="flex-partners revealcol">
         <div class="flex-partner-block" th:each="partner : ${partners}">
             <img th:src="${partner.img}">
-            <h2 th:text="${partner.name}"> nazwa </h2>
+            <h2 th:utext="${partner.name}"> nazwa </h2>
             <div>
                 <hr>
             </div>
-            <p th:text="${partner.description}"> opis </p>
+            <p th:utext="${partner.description}"> opis </p>
         </div>
     </div>
 
@@ -238,9 +238,9 @@
                     <th>Dyscyplina</th>
                 </tr>
                 <tr onClick='toggleRow(this)' th:each="review : ${reviews}">
-                    <td th:text="${review.author}">Author</td>
-                    <td th:text="'&darr;&nbsp;&nbsp;' + ${review.discipline}">Discipline</td>
-                    <td class='expanded-row-content hide-row' th:text="${review.opinion}">Opinion</td>
+                    <td th:utext="${review.author}">Author</td>
+                    <td th:utext="'&darr;&nbsp;&nbsp;' + ${review.discipline}">Discipline</td>
+                    <td class='expanded-row-content hide-row' th:utext="${review.opinion}">Opinion</td>
                 </tr>
             </table>
         </div>
