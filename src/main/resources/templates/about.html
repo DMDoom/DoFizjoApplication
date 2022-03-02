@@ -25,7 +25,8 @@
 <div class="header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" id="quick-contact-phone" th:text="${kontakt.title}"> phone </a>
+            <a href="https://goo.gl/maps/KUJPxGVNsUDqg98H6" id="quick-contact-address" th:utext="${lokalizacja.title}"> address </a>
+            <a href="tel:+48 731 278 308" id="quick-contact-phone" th:utext="${kontakt.title}"> phone </a>
         </div>
         <div class="navigation-link-flex">
             <a th:href="@{/}">zapraszamy</a>
@@ -43,7 +44,6 @@
 <div class="mobile-header">
     <div class="flex-header">
         <div class="quick-contact-flex">
-            <a href="#link" th:text="${lokalizacja.title}"> address </a>
             <a href="#link" th:text="${kontakt.title}"> phone </a>
         </div>
         <div class="dropdown">
