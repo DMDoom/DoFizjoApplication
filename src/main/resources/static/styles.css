@@ -9,6 +9,13 @@
 
     --fontMajor: 'Barlow', sans-serif, bold;
     --fontMinor: 'Barlow', sans-serif;
+
+    /* Mobile display */
+    --majorH1: 85px;
+    --mobileH1: 75px;
+    --mobileH2: 35px;
+    --mobileH3: 26px;
+    --mobileP: 22px;
  }
 
 /* GLOBAL */
@@ -140,6 +147,11 @@ a:hover {
 
 .flex-header img {
     margin-left: 50px;
+}
+
+#logo-image {
+    width: 85px;
+    height: 85px;
 }
 
 .separator {
@@ -760,6 +772,19 @@ tr:hover {
         font-size: 20px;
     }
 
+    .header {
+        min-height: 75px;
+    }
+
+    #logo-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .separator {
+        min-height: 20px;
+    }
+
     .mateusz a {
         font-size: 20px;
     }
@@ -824,6 +849,19 @@ tr:hover {
     }
 
     /* HEADER*/
+    .header {
+        min-height: 65px;
+    }
+
+    #logo-image {
+        width: 65px;
+        height: 65px;
+    }
+
+    .separator {
+        min-height: 15px;
+    }
+
     .flex-header a {
         font-family: var(--fontMinor);
         font-size: 17px;
@@ -982,11 +1020,6 @@ tr:hover {
         width: 500px;
     }
 
-    /* ABOUT */
-    .about-tile img {
-        width: 350px;
-    }
-
     .about-tile-office img {
         width: 450px;
     }
@@ -1010,6 +1043,7 @@ tr:hover {
     }
 }
 
+/* PHONE DISPLAY */
 @media only screen and (max-width: 991px)
 {
     /* HEADER */
@@ -1020,7 +1054,7 @@ tr:hover {
     .mobile-header {
         display: block;
         background-color: white;
-        min-height: 100px;
+        height: 75px;
         position: sticky;
         top: 0px;
         z-index: 99;
@@ -1028,46 +1062,46 @@ tr:hover {
 
     .separator {
         background-color: var(--siteMajor);
-        min-height: 35px;
+        min-height: 20px;
     }
 
     /* ROOT */
     h1 {
-        font-size: 40px;
+        font-size: var(--mobileH1);
     }
 
     h2 {
-        font-size: 22px;
+        font-size: var(--mobileH2);
     }
 
     h3 {
-        font-size: 17px;
+        font-size: var(--mobileH3);
     }
 
     p {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     a {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .mateusz a {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .karol a {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .welcome-text p {
-        font-size: 15px;
+        font-size: var(--mobileP);
     }
 
     /* HEADER*/
     .flex-header a {
         font-family: var(--fontMinor);
-        font-size: 17px;
+        font-size: var(--mobileP);
         font-weight: bold;
         color: grey;
         text-decoration: none;
@@ -1077,40 +1111,40 @@ tr:hover {
     #quick-contact-phone {
         color: var(--siteMajor);
         margin-right: 10px;
-        font-size: 22px;
+        font-size: var(--mobileP);
     }
 
     #quick-contact-address {
         color: gray;
         margin-right: 10px;
-        font-size: 17px;
+        font-size: var(--mobileP);
     }
 
     /* IMAGE SEPARATOR */
     .image-separator {
-        height: 500px;
+        height: 800px;
     }
 
     .image-text p {
-        max-width: 300px;
+        max-width: 500px;
     }
 
     /* GRID */
     .grid-left h1 {
-        font-size: 60px;
+        font-size: 100px;
     }
 
     .grid-middle img {
         align-self: start;
-        height: 2250px;
+        height: 3250px;
     }
 
     .grid-right h1 {
-        font-size: 60px;
+        font-size: 100px;
     }
 
     .mateusz img {
-        max-width: 200px;
+        max-width: 350px;
     }
 
     .mateusz p {
@@ -1118,7 +1152,7 @@ tr:hover {
     }
 
     .karol img {
-        max-width: 200px;
+        max-width: 350px;
     }
 
     .karol p {
@@ -1126,11 +1160,11 @@ tr:hover {
     }
 
     .methods img {
-        max-width: 300px;
+        max-width: 350px;
     }
 
     .methods h1 {
-        margin-top: 75px;
+        margin-top: 80px;
     }
 
     .methods p {
@@ -1139,15 +1173,15 @@ tr:hover {
     }
 
     .left-therapy-block {
-        max-width: 350px;
+        max-width: 325px;
     }
 
     .right-therapy-block {
-        max-width: 350px;
+        max-width: 325px;
     }
 
     .home-socials-tile {
-        margin-left: 200px;
+        margin-left: 210px;
     }
 
     .location {
@@ -1155,98 +1189,101 @@ tr:hover {
     }
 
     .location iframe {
-        width: 400;
-        height: 400;
+        width: 350;
+        height: 500;
         float: right;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+
+    #phone {
+        font-size: 40px;
     }
 
     /* PARTNERS */
     .partners-separator {
-        margin-top: 25px;
-        padding-top: 25px;
+        margin-top: 50px;
         padding-bottom: 25px;
         background-color: var(--siteMajor);
     }
 
     .partners-separator h1 {
-        font-size: 60px;
+        font-size: var(--majorH1);
     }
 
     .flex-partners {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin-top: 25px;
+        margin-top: 15px;
         flex-wrap: wrap;
     }
 
     .flex-partner-block {
-        max-width: 200px;
-        max-height: 375px;
+        max-width: 300px;
+        max-height: 1000px;
     }
 
     .flex-partner-block img {
-        width: 100px;
+        width: 200px;
         border-radius: 50%;
     }
 
     /* RECOMMENDATIONS */
     .recommendations h1 {
-        font-size: 60px;
+        font-size: var(--majorH1);
     }
 
     /* TABLE */
     table {
-        width: 600px;
+        width: 800px;
     }
 
     td,
     th {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .expanded-row-content {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     /* BLOG */
     .blog-navigation span {
-        font-size: 17px;
-    }
-
-    .nav-span {
-        font-size: 17px;
+        font-size: var(--mobileP);
     }
 
     .add-comment input {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .add-comment textarea {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .comment-tile h2 {
-        font-size: 17px;
+        font-size: var(--mobileP)px;
         text-align: left;
     }
 
     .comment-tile h3 {
-        font-size: 14px;
+        font-size: var(--mobileP);
         text-align: left;
     }
 
     .input-button {
-        font-size: 14px;
+        font-size: var(--mobileP);
     }
 
     .success-alert h2 {
-        font-size: 17px;
+        font-size: var(--mobileP);
     }
 
     /* DEFAULT BLOG STYLES */
     .blog-content img {
-        width: 300px;
+        width: 700px;
     }
 
     /* ABOUT */
@@ -1255,11 +1292,7 @@ tr:hover {
     }
 
     .about-tile-office img {
-        width: 300px;
-    }
-
-    .tile-info p {
-        max-width: 350px;
+        width: 500px;
     }
 
     .about-tile {
@@ -1268,7 +1301,7 @@ tr:hover {
     }
 
     .footer img {
-        transform: scale(0.7);
+        transform: scale(1);
     }
 
     /* SCROLL */
@@ -1278,5 +1311,19 @@ tr:hover {
 
     .revealrowleft {
         transform: translateX(-50px);
+    }
+
+    /* REWORK POSITIONING */
+    .flex-welcome-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .welcome-text {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        max-width: 500px;
     }
 }

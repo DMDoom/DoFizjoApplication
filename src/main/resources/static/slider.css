@@ -11,8 +11,8 @@
     --imgWidthLaptop: 600px;
     --imgHeightLaptop: 540px;
 
-    --imgWidthMobile: 400px;
-    --imgHeightMobile: 360px;
+    --imgWidthMobile: 100%;/*400px;*/
+    --imgHeightMobile: 100%;/*360px;*/
 }
 
 /* LOL */
@@ -168,5 +168,6 @@
 
     .navigation-auto {
         width: var(--imgWidthMobile);
+        display: none;
     }
 }

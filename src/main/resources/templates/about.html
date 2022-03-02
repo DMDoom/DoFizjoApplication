@@ -58,7 +58,7 @@
                 <a th:href="@{/}">partnerzy</a>
             </div>
         </div>
-        <img th:src="@{/images/logo.png}" width="85" height="85">
+        <img th:src="@{/images/logo.png}" width="75" height="75">
     </div>
     <div class="separator"></div>
 </div>
@@ -82,6 +82,7 @@
                 </div>
             </div>
             <div class="about-tile">
+                <img class="mobile-vis-on" th:src="@{images/karol.jpg}">
                 <div class="tile-info">
                     <h2 th:utext="${karol.title}"> mateusz </h2>
                     <div>
@@ -89,7 +90,7 @@
                     </div>
                     <p th:utext="${karol.content}"> opis </p>
                 </div>
-                <img th:src="@{images/karol.jpg}">
+                <img class="mobile-vis-off" th:src="@{images/karol.jpg}">
             </div>
             <div class="about-tile">
                 <img th:src="@{images/rafal.jpg}">

@@ -50,3 +50,58 @@
     max-width: 650px;
     border-radius: 20px;
 }
+
+.mobile-vis-on {
+    display: none;
+}
+
+@media only screen and (max-width: 991px)
+{
+    /* ABOUT */
+    .about-tile-office {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 0px;
+        margin-top: 10px;
+        min-width: 750px;
+        gap: 15px;
+        align-items: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .about-tile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0px;
+            margin-top: 10px;
+            min-width: 750px;
+            gap: 15px;
+            align-items: center;
+            margin-left: 0px;
+            margin-right: 0px;
+    }
+
+    .about-tile img {
+        width: 1000px;
+        margin-top: 50px;
+    }
+
+
+    .tile-info p {
+        max-width: 750px;
+    }
+
+    .mobile-vis-off {
+        display: none;
+    }
+
+    .mobile-vis-on {
+        display: block;
+        align-self: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

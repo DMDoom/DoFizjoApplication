@@ -290,11 +290,20 @@ body {
 @media only screen and (max-width: 991px)
 {
     .side-bar {
-         display: block;
+         display: none;
     }
 
     .nav-tile {
         /* CSS won't listen */
         width: 185px;
+    }
+
+    .parent {
+        display: block;
+    }
+
+    .blog-space {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
