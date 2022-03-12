@@ -11,11 +11,12 @@
     --fontMinor: 'Barlow', sans-serif;
 
     /* Mobile display */
-    --majorH1: 95px;
-    --mobileH1: 85px;
-    --mobileH2: 40px;
-    --mobileH3: 30px;
-    --mobileP: 28px;
+    --gridH1: 160px;
+    --majorH1: 120px;
+    --mobileH1: 95px;
+    --mobileH2: 60px;
+    --mobileH3: 40px;
+    --mobileP: 34px;
  }
 
 /* GLOBAL */
@@ -223,6 +224,10 @@ a:hover {
       "grid-left grid-middle grid-right"
       ". . ."
       ". . .";
+}
+
+.container-mobile {
+    display: none;
 }
 
 .grid-left {
@@ -673,10 +678,11 @@ tr:hover {
   background-color: var(--siteMajor);
   min-width: 200px;
   color: white;
-  padding: 16px;
-  font-size: 16px;
+  padding: 5px;
+  font-size: var(--mobileP);
   border: none;
   cursor: pointer;
+  font-family: var(--fontMinor);
 }
 
 .dropdown {
@@ -1094,6 +1100,10 @@ tr:hover {
         font-size: var(--mobileP);
     }
 
+    .container-mobile h1 {
+        font-size: var(--gridH1);
+    }
+
     /* HEADER*/
     .flex-header a {
         font-family: var(--fontMinor);
@@ -1188,14 +1198,6 @@ tr:hover {
         width: 350;
         height: 500;
         float: right;
-    }
-
-    .contact h2 {
-        font-size: 28px;
-    }
-
-    #phone {
-        font-size: 40px;
     }
 
     /* PARTNERS */
@@ -1327,5 +1329,238 @@ tr:hover {
 
     .welcome-text p {
         max-width: 750px;
+    }
+
+    /* NEW CONTAINER TESTING */
+
+    .container {
+        display: none;
+    }
+
+    .container-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-socials-tile {
+        margin-left: 0px;
+        align-self: center;
+    }
+
+    .social-media {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .social-media h1 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .mateusz {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mateusz img {
+        max-width: 500px;
+        align-self: center;
+        border-radius: 20px;
+        margin-top: 0px;
+    }
+
+    .mateusz h2 {
+        align-self: center;
+        text-align: center;
+    }
+
+    .mateusz a {
+        text-align: center;
+        align-self: center;
+    }
+
+    .mateusz p {
+        text-align: justify;
+        max-width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+        align-self: center;
+    }
+
+    .karol {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .karol img {
+        max-width: 500px;
+        align-self: center;
+        border-radius: 20px;
+        margin-top: 0px;
+    }
+
+    .karol h2 {
+        align-self: center;
+        text-align: center;
+    }
+
+    .karol a {
+        text-align: center;
+        align-self: center;
+    }
+
+    .karol p {
+        text-align: justify;
+        max-width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+        align-self: center;
+    }
+
+    .methods {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .methods h1 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .methods p {
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        float: center;
+        max-width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .methods h2 {
+        margin-top: 0px;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .methods img {
+        max-width: 750px;
+        align-self: center;
+    }
+
+    .therapy-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .therapy-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .left-therapy-block {
+        margin-top: 0px;
+        float: center;
+        max-width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .therapy-right {
+        margin-top: 40px;
+    }
+
+    .right-therapy-block {
+        margin-top: 0px;
+        max-width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .location {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .location iframe {
+        width: 700px;
+        height: 700px;
+        float: center;
+        justify-self: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contact h1 {
+        margin-top: 0px;
+    }
+
+    .contact h2 {
+        margin-bottom: 0px;
+    }
+
+    .contact {
+        margin-top: 50px;
+        margin-bottom: 25px;
+    }
+
+    .contact h2 {
+        font-size: var(--mobileH2);
+        font-weight: lighter;
+    }
+
+    #phone {
+        font-size: 60px;
+    }
+
+    .flex-partner-block {
+        max-width: 700px;
+        max-height: 1000px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flex-partners {
+        gap: 50px;
+    }
+
+    .instagram-posts {
+        display: none;
+    }
+
+    .image-separator {
+        height: 1000px;
+    }
+
+    .footer img {
+        transform: scale(1.3);
+    }
+
+    /* SCROLL */
+    .revealrowright {
+        transform: translateX(5px);
+    }
+
+    .revealrowleft {
+        transform: translateX(-5px);
     }
 }

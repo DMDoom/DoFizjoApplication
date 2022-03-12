@@ -12,7 +12,7 @@
     --imgHeightLaptop: 540px;
 
     --imgWidthMobile: 100%;/*400px;*/
-    --imgHeightMobile: 100%;/*360px;*/
+    --imgHeightMobile: intrinsic;/*360px;*/
 }
 
 /* LOL */
@@ -26,6 +26,7 @@
     width: 500%;
     height: var(--imgHeightPC);
     display: flex;
+    align-items: flex-start;
 }
 
 .slides input {
