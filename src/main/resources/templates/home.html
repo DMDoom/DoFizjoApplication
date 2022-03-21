@@ -33,7 +33,7 @@
             <a th:href="@{/office}">dla firm</a>
             <a th:href="@{/wiecej}">o nas</a>
             <a th:href="@{/blog}">blog</a>
-            <a href="#rekomendacje">rekomendacje</a>
+            <a href="#kontakt">kontakt</a>
             <a href="#partnerzy">partnerzy</a>
             <img id="logo-image" th:src="@{images/logo.png}">
         </div>
@@ -54,7 +54,7 @@
                 <a th:href="@{/office}">dla firm</a>
                 <a th:href="@{/wiecej}">o nas</a>
                 <a th:href="@{/blog}">blog</a>
-                <a href="#rekomendacje">rekomendacje</a>
+                <a href="#kontakt">kontakt</a>
                 <a href="#partnerzy">partnerzy</a>
             </div>
         </div>
@@ -258,8 +258,8 @@
             </div>
         </div>
 
-        <div class="contact" id="kontakt">
-            <h1 class="revealrowright">Kontakt</h1>
+        <div class="contact">
+            <h1 id="kontakt" class="revealrowright">Kontakt</h1>
             <h2 class="revealrowright" th:utext="${kontakt.content}"> email </h2>
             <a href="tel:+48 731 278 308" style="text-decoration: none">
                 <h2 class="revealrowright" id="phone" th:utext="${kontakt.title}"> phone </h2>

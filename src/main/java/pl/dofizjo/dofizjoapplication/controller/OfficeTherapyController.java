@@ -23,6 +23,11 @@ public class OfficeTherapyController {
         // Blocks
         model.addAttribute("kontakt", blockRepo.findById("kontakt"));
         model.addAttribute("lokalizacja", blockRepo.findById("lokalizacja"));
+        model.addAttribute("dlafirm1", blockRepo.findById("dlafirm1"));
+        model.addAttribute("dlafirm2", blockRepo.findById("dlafirm2"));
+        model.addAttribute("dlafirm3", blockRepo.findById("dlafirm3"));
+        model.addAttribute("dlafirm4", blockRepo.findById("dlafirm4"));
+        model.addAttribute("dlafirm5", blockRepo.findById("dlafirm5"));
 
         return "officetherapy";
     }
