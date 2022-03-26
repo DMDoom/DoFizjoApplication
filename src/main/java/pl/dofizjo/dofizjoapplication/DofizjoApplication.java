@@ -31,7 +31,7 @@ public class DofizjoApplication {
 	@Bean
 	CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo, CommentRepository commentRepo) {
 		return args -> {
-			userRepo.add(new User("theron", encoder.encode("3x4mpl3p4ssw0rd"), true));
+			//userRepo.add(new User("user", encoder.encode("password"), true));
 		};
 	}
 }
