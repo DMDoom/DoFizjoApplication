@@ -1,5 +1,7 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
@@ -18,11 +20,8 @@ import java.util.List;
 @Repository
 public class ReviewRepository {
 
+    @Autowired
     private JdbcTemplate jdbc;
-
-    public ReviewRepository(JdbcTemplate jdbc) {
-        this.jdbc = jdbc;
-    }
 
     // Find by id
     public Review findById(Long id) {

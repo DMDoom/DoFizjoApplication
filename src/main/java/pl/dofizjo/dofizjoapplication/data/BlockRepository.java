@@ -1,5 +1,7 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.dofizjo.dofizjoapplication.data.mapper.BlockMapper;
@@ -8,6 +10,7 @@ import pl.dofizjo.dofizjoapplication.model.Block;
 import java.util.List;
 
 @Repository
+@Slf4j
 public class BlockRepository {
 
     private JdbcTemplate jdbc;
@@ -17,6 +20,7 @@ public class BlockRepository {
     }
 
     // Find by id
+    @Cacheable(value = "blockCache")
     public Block findById(String id) {
         return jdbc.queryForObject("SELECT id, title, content from BLOCK where id=?",
                 new BlockMapper(),
@@ -24,6 +28,7 @@ public class BlockRepository {
     }
 
     // Find all
+    @Cacheable(value = "blockCache")
     public List<Block> findAll() {
         return jdbc.query("SELECT * from BLOCK", new BlockMapper());
     }

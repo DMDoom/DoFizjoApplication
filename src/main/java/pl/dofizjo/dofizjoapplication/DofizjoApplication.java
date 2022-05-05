@@ -25,9 +25,6 @@ public class DofizjoApplication {
 	@Autowired
 	PasswordEncoder encoder;
 
-	// TODO:
-	// DataSource with MySQL, MySQL driver dependency maybe
-
 	@Bean
 	CommandLineRunner dataLoader(PostRepository postRepo, PartnerRepository partnerRepo, ReviewRepository reviewRepo, BlockRepository blockRepo, MethodRepository methodRepo, UserRepository userRepo, CommentRepository commentRepo) {
 		return args -> {
