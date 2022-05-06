@@ -1,3 +1,13 @@
+spring:
+  profiles:
+    active:
+      - prod
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
 server:
   port: 8080
   ssl:
@@ -7,13 +17,18 @@ server:
     key-password: t3stp4ss
     key-alias: dofizjo
 
-# spring:
- # sql:
- #   init:
- #     mode: never
- # datasource:
- #   url: ${CLEARDB_DATABASE_URL}
- #   username: ${CLEARDB_DATABASE_USERNAME}
- #   password: ${CLEARDB_DATABASE_PASSWORD}
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  sql:
+    init:
+      mode: never
+  datasource:
+    url: ${CLEARDB_DATABASE_URL}
+    username: ${CLEARDB_DATABASE_USERNAME}
+    password: ${CLEARDB_DATABASE_PASSWORD}
 
-# # https://devcenter.heroku.com/articles/understanding-ssl-on-heroku#when-to-use-heroku-ssl
+# Using Heroku ssl certificates
+# https://devcenter.heroku.com/articles/understanding-ssl-on-heroku#when-to-use-heroku-ssl

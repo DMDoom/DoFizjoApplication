@@ -1,8 +1,9 @@
-package pl.dofizjo.dofizjoapplication.security;
+package pl.dofizjo.dofizjoapplication.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -16,7 +17,8 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@Profile("prod")
+public class ProductionSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     UserDetailsService userDetailsService;
@@ -53,9 +55,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.requiresChannel()
                 .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
                 .requiresSecure();
-
-        // Do NOT use in production
-        //http.csrf().disable();
-        //http.headers().frameOptions().disable();
     }
 }
