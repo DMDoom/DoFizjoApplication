@@ -1,6 +1,7 @@
 package pl.dofizjo.dofizjoapplication.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -24,6 +25,7 @@ public class ReviewRepository {
     private JdbcTemplate jdbc;
 
     // Find by id
+    @Cacheable(value="reviewCache")
     public Review findById(Long id) {
         return jdbc.queryForObject("SELECT id, author, discipline, opinion from REVIEW where id=?",
                 new ReviewMapper(),
@@ -31,6 +33,7 @@ public class ReviewRepository {
     }
 
     // Find all
+    @Cacheable(value="reviewCache")
     public List<Review> findAll() {
         return jdbc.query("SELECT * from REVIEW", new ReviewMapper());
     }

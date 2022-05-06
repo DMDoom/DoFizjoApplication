@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -18,6 +19,7 @@ public class PostRepository {
     }
 
     // Find by id
+    @Cacheable(value = "postCache")
     public Post findById(int id) {
         return jdbc.queryForObject(
                 "SELECT id, author, title, content, createdAt from POST where id=?",
@@ -26,6 +28,7 @@ public class PostRepository {
     }
 
     // Find recent
+    @Cacheable(value = "postCache")
     public List<Post> findRecent(int number) {
         return jdbc.query("SELECT * from POST ORDER BY createdAt DESC LIMIT ?",
                 new PostMapper(), number);
@@ -54,11 +57,13 @@ public class PostRepository {
     }
 
     // Find latest one
+    @Cacheable(value = "postCache")
     public Post findLatestOne() {
         return jdbc.queryForObject("SELECT * FROM POST ORDER BY createdAt DESC LIMIT 1", new PostMapper());
     }
 
     // Find all
+    @Cacheable(value = "postCache")
     public List<Post> findAll() {
         return jdbc.query(
                 "SELECT * from POST",

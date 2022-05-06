@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.dofizjo.dofizjoapplication.data.mapper.MethodMapper;
@@ -17,6 +18,7 @@ public class MethodRepository {
     }
 
     // Find by id
+    @Cacheable(value = "methodCache")
     public Method findById(int id) {
         return jdbc.queryForObject("SELECT id, name, description from METHOD where id=?",
                 new MethodMapper(),
@@ -24,6 +26,7 @@ public class MethodRepository {
     }
 
     // Find all
+    @Cacheable(value = "methodCache")
     public List<Method> findAll() {
         return jdbc.query("SELECT * from METHOD",
                 new MethodMapper());

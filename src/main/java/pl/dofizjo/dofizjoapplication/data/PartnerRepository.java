@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
@@ -24,6 +25,7 @@ public class PartnerRepository {
     }
 
     // Find by id
+    @Cacheable(value = "partnerCache")
     public Partner findById(Long id) {
         return jdbc.queryForObject("SELECT id, img, name, description from PARTNER where id=?",
                 new PartnerMapper(),
@@ -31,6 +33,7 @@ public class PartnerRepository {
     }
 
     // Find all
+    @Cacheable(value = "partnerCache")
     public List<Partner> findAll() {
         return jdbc.query("SELECT * from PARTNER", new PartnerMapper());
     }
