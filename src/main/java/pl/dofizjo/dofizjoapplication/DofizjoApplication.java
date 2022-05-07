@@ -11,10 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.dofizjo.dofizjoapplication.data.*;
 import pl.dofizjo.dofizjoapplication.model.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 @SpringBootApplication
 @Slf4j
 public class DofizjoApplication {

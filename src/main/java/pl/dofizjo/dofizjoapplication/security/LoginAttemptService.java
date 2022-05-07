@@ -3,12 +3,14 @@ package pl.dofizjo.dofizjoapplication.security;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 @Service
+@Slf4j
 public class LoginAttemptService {
 
     private final int attemptLimit = 10;
@@ -26,10 +28,13 @@ public class LoginAttemptService {
     }
 
     public void loginSucceeded(String key) {
+        log.info("Login attempt succeeded, origin: " + key);
         attemptsCache.invalidate(key);
     }
 
     public void loginFailed(String key) {
+        log.warn("Login attempt failed; origin: " + key);
+
         int attempts = 0;
         try {
             attempts = attemptsCache.get(key);
@@ -43,7 +48,12 @@ public class LoginAttemptService {
 
     public boolean isBlocked(String key) {
         try {
-            return attemptsCache.get(key) >= attemptLimit;
+            if (attemptsCache.get(key) >= attemptLimit) {
+                log.warn("IP blocked: " + key);
+                return true;
+            } else {
+                return false;
+            }
         } catch (ExecutionException e) {
             return false;
         }
