@@ -59,4 +59,8 @@ public class LoginAttemptService {
         }
     }
 
+    public LoadingCache<String, Integer> getAttemptsCache() {
+        return attemptsCache;
+    }
+
 }
