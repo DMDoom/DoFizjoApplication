@@ -1,4 +1,4 @@
-package pl.dofizjo.dofizjoapplication.security;
+package pl.dofizjo.dofizjoapplication.service;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
