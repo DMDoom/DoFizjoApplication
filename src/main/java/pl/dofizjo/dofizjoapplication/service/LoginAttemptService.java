@@ -3,7 +3,10 @@ package pl.dofizjo.dofizjoapplication.service;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ExecutionException;
@@ -11,9 +14,12 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
+@ConfigurationProperties(prefix="dofizjo.security")
+@Setter
+@Getter
 public class LoginAttemptService {
 
-    private final int attemptLimit = 10;
+    private int attemptLimit = 10;
     private LoadingCache<String, Integer> attemptsCache;
 
     public LoginAttemptService() {
@@ -58,9 +64,4 @@ public class LoginAttemptService {
             return false;
         }
     }
-
-    public LoadingCache<String, Integer> getAttemptsCache() {
-        return attemptsCache;
-    }
-
 }
