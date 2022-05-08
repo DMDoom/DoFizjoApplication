@@ -1,6 +1,7 @@
 package pl.dofizjo.dofizjoapplication.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -39,6 +40,7 @@ public class ReviewRepository {
     }
 
     // Add one
+    @CacheEvict(value="reviewCache", allEntries = true)
     public void add(Review review) {
         jdbc.update("INSERT into REVIEW (author, discipline, opinion) values (?, ?, ?)",
                 review.getAuthor(),
@@ -54,6 +56,7 @@ public class ReviewRepository {
     }
 
     // Overwrite one
+    @CacheEvict(value="reviewCache", allEntries = true)
     public void overwrite(Review review) {
         deleteById(review.getId());
 
@@ -71,6 +74,7 @@ public class ReviewRepository {
     }
 
     // Delete by id
+    @CacheEvict(value="reviewCache", allEntries = true)
     public void deleteById(int id) {
         jdbc.update("DELETE from REVIEW where id=?", id);
     }

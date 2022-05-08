@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -39,6 +40,7 @@ public class PartnerRepository {
     }
 
     // Add one
+    @CacheEvict(value="partnerCache", allEntries = true)
     public void add(Partner partner) {
         jdbc.update("INSERT into PARTNER (img, name, description) values (?, ?, ?)",
                 partner.getImg(),
@@ -54,6 +56,7 @@ public class PartnerRepository {
     }
 
     // Overwrite one
+    @CacheEvict(value="partnerCache", allEntries = true)
     public void overwrite(Partner partner) {
         deleteById(partner.getId());
 
@@ -71,6 +74,7 @@ public class PartnerRepository {
     }
 
     // Delete by id
+    @CacheEvict(value="partnerCache", allEntries = true)
     public void deleteById(int id) {
         jdbc.update("DELETE from PARTNER where id=?", id);
     }

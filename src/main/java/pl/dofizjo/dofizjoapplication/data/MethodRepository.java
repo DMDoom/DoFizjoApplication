@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -33,6 +34,7 @@ public class MethodRepository {
     }
 
     // Add one
+    @CacheEvict(value="methodCache", allEntries = true)
     public void add(Method method) {
         jdbc.update("INSERT into METHOD (name, description) values (?, ?)",
                 method.getName(),
@@ -47,6 +49,7 @@ public class MethodRepository {
     }
 
     // Overwrite one
+    @CacheEvict(value="methodCache", allEntries = true)
     public void overwrite(Method method) {
         deleteById(method.getId());
 
@@ -64,6 +67,7 @@ public class MethodRepository {
     }
 
     // Delete by id
+    @CacheEvict(value="methodCache", allEntries = true)
     public void deleteById(int id) {
         jdbc.update("DELETE from METHOD where id=?", id);
     }

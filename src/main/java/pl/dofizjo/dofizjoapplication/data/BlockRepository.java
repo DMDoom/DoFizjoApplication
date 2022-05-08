@@ -1,6 +1,7 @@
 package pl.dofizjo.dofizjoapplication.data;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,7 @@ public class BlockRepository {
 
     // Add one
     // DIFFERENT FROM ALL OTHER REPOSITORY METHODS in that it also inserts id manually
+    @CacheEvict(value="blockCache", allEntries=true)
     public void add(Block block) {
         jdbc.update("INSERT into BLOCK (id, title, content) values (?, ?, ?)",
                 block.getId(),
@@ -50,6 +52,7 @@ public class BlockRepository {
     }
 
     // Overwrite one
+    @CacheEvict(value="blockCache", allEntries=true)
     public void overwrite(Block block) {
         deleteById(block.getId());
 
@@ -67,6 +70,7 @@ public class BlockRepository {
     }
 
     // Delete by id
+    @CacheEvict(value="blockCache", allEntries=true)
     public void deleteById(String id) {
         jdbc.update("DELETE from BLOCK where id=?", id);
     }

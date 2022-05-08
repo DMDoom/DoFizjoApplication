@@ -1,7 +1,6 @@
 package pl.dofizjo.dofizjoapplication.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +38,6 @@ public class EditBlogController {
 
     // Posts
     @PostMapping(value="/update", params="action=add")
-    @CacheEvict(value="postCache", allEntries = true)
     public String addPost(@ModelAttribute("post") Post post) {
         postRepo.add(post);
 
@@ -47,7 +45,6 @@ public class EditBlogController {
     }
 
     @PostMapping(value="/update", params="action=update")
-    @CacheEvict(value="postCache", allEntries = true)
     public String updatePost(@ModelAttribute("post") Post post) {
         postRepo.overwrite(post);
 
@@ -55,7 +52,6 @@ public class EditBlogController {
     }
 
     @PostMapping(value="/update", params="action=delete")
-    @CacheEvict(value="postCache", allEntries = true)
     public String deletePost(@ModelAttribute("post") Post post) {
         postRepo.deleteById(post.getId());
 
@@ -64,7 +60,6 @@ public class EditBlogController {
 
     // Comment queue
     @PostMapping(value="/comment", params="action=accept")
-    @CacheEvict(value="postCache", allEntries = true)
     public String acceptComment(@ModelAttribute("comment") Comment comment) {
         commentRepo.acceptComment(comment);
 
@@ -72,7 +67,6 @@ public class EditBlogController {
     }
 
     @PostMapping(value="/comment", params="action=reject")
-    @CacheEvict(value="postCache", allEntries = true)
     public String rejectComment(@ModelAttribute("comment") Comment comment) {
         commentRepo.deleteFromQueueById(comment.getId());
 

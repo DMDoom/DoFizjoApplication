@@ -1,5 +1,6 @@
 package pl.dofizjo.dofizjoapplication.data;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -72,6 +73,7 @@ public class PostRepository {
     }
 
     // Add one
+    @CacheEvict(value="postCache", allEntries = true)
     public void add(Post post) {
         post.setCreatedAt(new Date());
 
@@ -90,6 +92,7 @@ public class PostRepository {
     }
 
     // Overwrite one
+    @CacheEvict(value="postCache", allEntries = true)
     public void overwrite(Post post) {
         // Removing post of the same ID
         deleteById(post.getId());
@@ -112,6 +115,7 @@ public class PostRepository {
     }
 
     // Delete by id
+    @CacheEvict(value="postCache", allEntries = true)
     public void deleteById(int id) {
         jdbc.update("DELETE from POST where id=?", id);
     }

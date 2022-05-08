@@ -75,11 +75,8 @@ public class CommentRepository {
         jdbc.update("DELETE from COMMENT where id=?", id);
     }
 
-    // Make CommentRepo add comments to Comment_queue by default
-    // then from CMS, this repo will expose methods to copy rows from Comment_Queue into Comment and Post_Comments
-    // https://www.geeksforgeeks.org/how-to-copy-rows-from-one-table-to-another-in-sql/
-
-    // Add to queue
+    // Add to comment queue
+    // Comments from the queue need to be accepted in the admin panel in order to be displayed on the blog
     public void addToQueue(Comment comment) {
         comment.setCreatedAt(new Date());
         jdbc.update("INSERT into COMMENT_QUEUE (postid, author, content, createdAt) values (?, ?, ?, ?)",
