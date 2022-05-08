@@ -74,4 +74,9 @@ public class BlockRepository {
     public void deleteById(String id) {
         jdbc.update("DELETE from BLOCK where id=?", id);
     }
+
+    // Delete all
+    public void deleteAll() {
+        jdbc.update("DELETE from BLOCK");
+    }
 }
