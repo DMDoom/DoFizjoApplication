@@ -9,6 +9,7 @@ import pl.dofizjo.dofizjoapplication.data.UserRepository;
 import pl.dofizjo.dofizjoapplication.model.User;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 @Service
 public class DofizjoUserDetailsService implements UserDetailsService {
@@ -29,13 +30,13 @@ public class DofizjoUserDetailsService implements UserDetailsService {
             throw new RuntimeException("IP blocked, max attempts exceeded");
         }
 
-        User user = userRepo.findByUsername(username);
+        Optional<User> user = userRepo.findByUsername(username);
 
-        if (user != null) {
-            return user;
+        if (user.isPresent()) {
+            return user.get();
         }
 
-        throw new UsernameNotFoundException("User" + username + "not found");
+        throw new UsernameNotFoundException("User " + username + " not found");
     }
 
     private String getIP() {

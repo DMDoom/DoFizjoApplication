@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 import pl.dofizjo.dofizjoapplication.data.mapper.UserMapper;
 import pl.dofizjo.dofizjoapplication.model.User;
 
+import java.util.Optional;
+
 @Repository
 public class UserRepository {
 
@@ -15,10 +17,17 @@ public class UserRepository {
     }
 
     // Find by id
-    public User findByUsername(String username) {
-        return jdbc.queryForObject("SELECT * from USERS where username=?",
-                new UserMapper(),
-                username);
+    public Optional<User> findByUsername(String username) {
+        try {
+            User user = jdbc.queryForObject("SELECT * from USERS where username=?",
+                    new UserMapper(),
+                    username);
+
+            Optional<User> opt = Optional.ofNullable(user);
+            return opt;
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     // Save
