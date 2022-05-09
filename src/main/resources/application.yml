@@ -5,6 +5,8 @@ spring:
 dofizjo:
   security:
     attemptLimit: 10
+    username: ${DOFIZJO_USERNAME}
+    password: ${DOFIZJO_PASSWORD}
 
 ---
 spring:
